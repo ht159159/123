@@ -1,0 +1,248 @@
+.wrapper{
+  padding: 0;
+  height: 85vmax;
+  background-color: #ffffff;
+  /* padding-top: 7.2vmax; */
+  padding-bottom: 7.8vmax;
+  display: flex;
+  flex-flow: column;
+  color: #666666;
+  font-size: 3.7vmin;
+  font-family:"Microsoft JhengHei","Heiti TC",sans-serif;
+}
+
+.panel-wrap {
+  position: fixed;
+  top: 7.2vmax;
+  left: calc((100% - 100.3vmin) / 2);
+  z-index: 8;
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
+/* 字体颜色 */
+.white {
+  color: #fff;
+}
+.orange {
+  color: #f57e2f;
+}
+
+
+/*大球颜色*/
+.big-redback {
+  background-color: #eb6877;
+  border-radius: 7.2vmin;
+}
+.big-greenback {
+  background-color: #80c269;
+  border-radius: 7.2vmin;
+}
+.big-blueback {
+  background-color: #556fb5;
+  border-radius: 7.2vmin;
+}
+
+/* gamebox_4格共用 */
+.gameBox {
+  width: 20.2vmin;
+  height: 21.3vmin;
+  background-color: #fff;
+  margin: 1vmin;
+  border-radius: 1.3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.54vmin solid #fff;
+}
+.playActive.gameBox .gameBoxWrap span:nth-of-type(1) {
+  color: #fff;
+}
+.playActive.gameBox .gameBoxWrap span:nth-of-type(2) {
+  color: #fff;
+}
+.gameBox .gameBoxWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.gameBox .gameBoxWrap span:nth-of-type(1) {
+  color: #999999;
+  font-weight: bold;
+  font-size: 4.3vmin;
+}
+.gameBox .gameBoxWrap span:nth-of-type(2) {
+  color: #feb433;
+}
+
+.gameBox:nth-of-type(1) {
+  margin-left: 0;
+}
+.gameBox:nth-of-type(-n + 4) {
+  margin-top: 0;
+}
+.gameBox:nth-of-type(4n + 0) {
+  margin-right: 0;
+}
+.gameBox:nth-of-type(4n + 1) {
+  margin-left: 0;
+}
+
+/* gamebox_*/
+.gameBox_6 {
+  width: 11.7vmin;
+  height:11.7vmin;
+  background-color: #f2f2f2;
+  margin: 1vmin 0.8vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+  border-radius: 1.2vmin;
+}
+
+.playActive .gameBox_6 .gameBoxWrap span:nth-of-type(1) {
+  color: #fff;
+}
+.gameBox_6 .gameBoxWrap {
+  display: flex;
+  align-items: center;
+}
+.gameBox_6 .gameBoxWrap span {
+  font-weight: bold;
+  font-size: 4.3vmin;
+  margin: 1.1vmin 0;
+  text-align: center;
+}
+/* gamebox_10样式(10个以上)*/
+.gameBox_10 {
+  /* width: 11.7vmin;
+    height:11.7vmin; */
+  width: 11vmin;
+  height: 11vmin;
+  background-color: #fff;
+  margin: 1vmin 2.43vmin 1vmin 2vmin;
+  border-radius: 1.3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666666;
+  border: 0.54vmin solid #666666;
+  border-radius: 1.2vmin;
+}
+.playActive .gameBox_10 .gameBoxWrap span:nth-of-type(1) {
+  color: #fff;
+}
+.gameBox_10 .gameBoxWrap {
+  display: flex;
+  align-items: center;
+}
+.gameBox_10 .gameBoxWrap span {
+  font-weight: bold;
+  font-size: 4.3vmin;
+  margin: 1.1vmin 0;
+  text-align: center;
+}
+.playContent{
+    display: flex;
+    justify-content: center;
+  }
+.playActive {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+  background-color: #feb433;
+  border-radius: 1.3vmin;
+  color: #fff !important;
+}
+.gameBox .gameBoxWrap span:nth-of-type(1) {
+  margin-bottom: 8px;
+}
+
+.contentWrap {
+  padding: 32.7vmax 2.7vmin 2.7vmin 2.7vmin;
+  background-color: #fff;
+  margin: 0 4.3vmin;
+  min-height: 21.29vmax;
+  width: 87vmin;
+  border-radius: 5px;
+  align-self: center;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.game {
+  padding: 0vmax 2.7vmin 0vmin 2.7vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.contentWrap h2 {
+  font-weight: bold;
+  align-self: center;
+}
+.contentWrap .gameTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5vmax 0.7vmin;
+  height: 3.1vmax;
+}
+.contentWrap .gameTitle span:nth-of-type(2) {
+  color: #ff2a2a;
+}
+.contentWrap .gameTitle span:nth-of-type(1) {
+  font-weight: bold;
+}
+.gameContent {
+  width: 100%;
+  display: flex;
+  justify-content:flex-start;
+  margin:0 3vmin;
+}
+/* 时时彩超过10个号码用 */
+.gameContent2 {
+  width: 93%;
+  display: flex;
+  justify-content:start;
+}
+.gamePlayName {
+  align-self: center;
+}
+.gameBackground {
+  background-color: #f2f2f2;
+  padding-bottom: 19.79vmax;
+  display: flex;
+  justify-content: center;
+}
+
+.contentW {
+  padding-top: 32.7vmax;
+  background-color: #fff;
+  margin: 0 4.3vmin;
+  min-height: 21.29vmax;
+  width: 91.4vmin;
+  border-radius: 5px;
+  align-self: center;
+  padding-bottom: 15px;
+}
+.contentW h2 {
+  font-weight: bold;
+  align-self: center;
+}
+.contentW .gameTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5vmax 0.7vmin;
+  height: 3.1vmax;
+}
+.contentW .gameTitle span:nth-of-type(2) {
+  color: #ff2a2a;
+}
+.contentW .gameTitle span:nth-of-type(1) {
+  font-weight: bold;
+}
+ .gameContent, .gameContent2{
+  flex-flow:wrap;
+  width:96%
+}

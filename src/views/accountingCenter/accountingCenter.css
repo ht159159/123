@@ -1,0 +1,155 @@
+.accounting {
+    min-height: 90vmax;
+}
+
+.accountingBg {
+    width: 88vmin;
+    height: 88vmin;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 0 auto;
+    margin-top: 22.5vmax;
+}
+
+.accounting-options-item {
+    width: 42.7vmin;
+    height: 42.7vmin;
+}
+.accounting-options-item span{
+    font-family: MicrosoftJhengHei;
+    position: absolute;
+    right: 6.7vmin;
+    bottom: 4.9vmax;
+    font-size: 14px;
+    color: #fff;
+}
+
+.betReportIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #f1929c, #e35e74);
+}
+
+.betReportIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_betReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.betReportIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_betReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.depositReportIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #98dea4, #62a76e);
+}
+
+.depositReportIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_withdrawReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.depositReportIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_withdrawReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.transferReportIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #84b2ef, #535bc7);
+}
+
+.transferReportIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_transferReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.transferReportIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_transferReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.accountChangeIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #ef98ff, #9177ff);
+}
+
+.accountChangeIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_accountReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.accountChangeIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_accountReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;stroke:#707070}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#e2574c}
+        </style>
+        <clipPath id="clip-path">
+            <path id="Rectangle_1564" d="M0 0h30v30H0z" class="cls-1" data-name="Rectangle 1564" transform="translate(136 299)"/>
+        </clipPath>
+    </defs>
+    <g id="icon_exclamation-mark" transform="translate(-136 -299)">
+        <g id="Mask_Group_40" class="cls-2" data-name="Mask Group 40">
+            <g id="exclamation-mark" transform="translate(136 299)">
+                <path id="Path_428" d="M15 0a15 15 0 1 0 15 15A15 15 0 0 0 15 0zm0 27.187A12.187 12.187 0 1 1 27.187 15 12.187 12.187 0 0 1 15 27.187zm0-20.609c-1.074 0-1.887.561-1.887 1.466v8.306c0 .907.813 1.465 1.887 1.465 1.048 0 1.887-.582 1.887-1.465V8.045c.001-.884-.838-1.467-1.887-1.467zm0 13.109a1.872 1.872 0 1 0 1.871 1.873A1.875 1.875 0 0 0 15 19.688z" class="cls-3" data-name="Path 428"/>
+            </g>
+        </g>
+    </g>
+</svg>

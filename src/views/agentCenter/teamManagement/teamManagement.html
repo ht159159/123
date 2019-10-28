@@ -1,0 +1,245 @@
+<div class="managementWrap">
+  <div class="agentWrap">
+    <div class="nowAgentWrapLeft">
+      <p>当前会员:</p>
+      <div class="flex">
+        <!-- <img src="@/assets/img/icon_list_user_green.svg" alt="" /> -->
+        <p class="account">{{ nowMember }}</p>
+        <div class="down-arrow"></div>
+      </div>
+    </div>
+    <div class="nowAgentWrapRight">
+      <div class="backUP" @click="backSuperior()">
+        <p>回上级</p>
+      </div>
+    </div>
+  </div>
+  <div class="agentNav">
+    <div class="agentNavWrap" @click="clickNavType('0')">
+      <p>旗下</p>
+      <div class="agentNav_bottom" v-show="navType==0"></div>
+    </div>
+    <div class="agentNavWrap" @click="clickNavType('1')">
+      <p>基本资料</p>
+      <div class="agentNav_bottom" v-show="navType==1"></div>
+    </div>
+    <div class="agentNavWrap" @click="clickNavType('2')">
+      <p>奖金组</p>
+      <div class="agentNav_bottom" v-show="navType==2"></div>
+    </div>
+    <div class="agentNavWrap" @click="clickNavType('3')">
+      <p>反水</p>
+      <div class="agentNav_bottom" v-show="navType==3"></div>
+    </div>
+  </div>
+  <div class="teamAgent" v-show="navType==0">
+    <div class="agentWrap downAgent">
+      <div class="downAgentWrapLeft">
+        <p>旗下代理</p>
+      </div>
+      <div class="downAgentWrapRight">新增</div>
+    </div>
+    <div class="agentDataWrap">
+      <div class="statusNav">
+        <div class="account">
+          <p>登入账号</p>
+          <img src="@/assets/img/Mask Group 65.svg" alt="" />
+        </div>
+        <p class="availableCredit">可用额度</p>
+        <p class="agentStatus">状态</p>
+        <p class="lastTime">上次登入时间</p>
+      </div>
+      <div v-for="(item,Index) in agentData">
+        <div class="statusData" v-if="Index!=0">
+          <div class="grayLine"></div>
+          <div class="statusDataWrap">
+            <div
+              class="account"
+              @click="clickMember(item.memberID,item.loginID)"
+            >
+              <img src="@/assets/img/icon_list_user_green.svg" alt="" />
+              <p>{{ item.loginID }}</p>
+            </div>
+            <div class="availableCredit">
+              <p>{{ item.points }}</p>
+            </div>
+            <p class="agentStatus">{{ item.statusName }}</p>
+            <p class="lastTime">{{ item.lastLoginTime }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="agentWrap downAgent">
+      <div class="downAgentWrapLeft">
+        <p>旗下会员</p>
+      </div>
+      <div class="downAgentWrapRight">新增</div>
+    </div>
+    <div class="agentDataWrap">
+      <div class="statusNav">
+        <div class="account">
+          <p>登入账号</p>
+          <img src="@/assets/img/Mask Group 65.svg" alt="" />
+        </div>
+        <p class="availableCredit">可用额度</p>
+        <p class="agentStatus">状态</p>
+        <p class="lastTime">上次登入时间</p>
+      </div>
+      <div v-for="(item,Index) in memberData">
+        <div class="statusData">
+          <div class="grayLine"></div>
+          <div class="statusDataWrap">
+            <div class="account">
+              <img src="@/assets/img/icon_list_user_green.svg" alt="" />
+              <p>{{ item.loginID }}</p>
+            </div>
+            <div class="availableCredit">
+              <p>{{ item.points }}</p>
+            </div>
+            <p class="agentStatus">{{ item.statusName }}</p>
+            <p class="lastTime">{{ item.lastLoginTime }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="baseDataWrap" v-show="navType==1">
+    <div class="baseData">
+      <p class="dataTitle">可用额度</p>
+      <p>{{ memberBaseData.points }}</p>
+    </div>
+    <div class="grayLine"></div>
+    <div class="baseData">
+      <p class="dataTitle">状态</p>
+      <p>{{ memberBaseData.statusName }}</p>
+    </div>
+    <div class="grayLine"></div>
+    <div class="baseData">
+      <p class="dataTitle">上次登入时间</p>
+      <p>{{ memberBaseData.lastLoginTime }}</p>
+    </div>
+    <div class="grayLine"></div>
+    <div class="baseData">
+      <p class="dataTitle">异动时间</p>
+      <p>{{ memberBaseData.editTime }}</p>
+    </div>
+    <div class="grayLine"></div>
+    <div class="baseData">
+      <p class="dataTitle">注册时间</p>
+      <p>{{ memberBaseData.createTime }}</p>
+    </div>
+    <div class="grayLine"></div>
+  </div>
+  <div class="bonusGroup" v-show="navType==2">
+    <div class="bonusWrap">
+      <p class="platform">平台</p>
+      <p class="currently">目前</p>
+      <p class="limit">限制</p>
+    </div>
+    <div v-for="(item,Index) in bonusGroupData">
+      <div class="grayLine"></div>
+      <div class="bonusWrap">
+        <p class="platform">{{ item.spName }}</p>
+        <p class="currently">{{ item.multiple }}</p>
+        <p class="limit">{{ item.multipleMin }}~{{ item.multipleMax }}</p>
+      </div>
+    </div>
+    <div class="grayLine"></div>
+    <div class="adjustmentButtonWrap">
+      <button class="adjustmentButton">调整奖金组</button>
+    </div>
+    <div class="bonusSetWrap">
+      <div class="bonusTitle">
+        <p>奖金组设定</p>
+        <div class="setup-select">
+          <span>最低</span>
+          <div class="iphone-checkbox">
+            <input
+              type="checkbox"
+              class="advanced_switch js-minMax-switch"
+              id="prize_setup"
+            />
+            <label for="prize_setup"></label>
+          </div>
+          <span>最高</span>
+        </div>
+      </div>
+      <div class="gameAdjustment">
+        <div class="progressBarWrap">
+          <div class="lessWrap">
+            <div class="less">
+              <p>-</p>
+            </div>
+            <p class="lessNum">1700</p>
+          </div>
+          <div>
+            <v-touch v-on:tap="tapstart" v-on:panend="onPanend">
+              <input
+                type="range"
+                min="1700"
+                max="2000"
+                step="2"
+                class="zipper"
+                id = "js-zipper"
+                name="prize"
+              />
+            </v-touch>
+          </div>
+          <div class="addWrap">
+            <p class="addNum">2000</p>
+            <p class="add">+</p>
+          </div>
+        </div>
+        <div class="grayLine"></div>
+      </div>
+      <div class="gameAdjustment">
+        <div class="gameAdjustmentTitle">
+          <div class="gameName">時時彩</div>
+          <div>{{gameAdjustmentVal}}</div>
+        </div>
+        <div class="progressBarWrap">
+          <div class="lessWrap">
+            <div class="less">
+              <p>-</p>
+            </div>
+            <p class="lessNum">1700</p>
+          </div>
+          <div>
+            <v-touch v-on:tap="tapstart" v-on:panend="onPanend">
+              <input
+                type="range"
+                min="1700"
+                max="2000"
+                step="2"
+                class="zipper"
+                name="prize"
+                v-model="gameAdjustmentVal"
+              />
+            </v-touch>
+          </div>
+          <div class="addWrap">
+            <p class="addNum">2000</p>
+            <p class="add">+</p>
+          </div>
+        </div>
+        <div class="grayLine"></div>
+      </div>
+    </div>
+  </div>
+  <div class="antiWater" v-show="navType==3">
+    <div class="bonusWrap">
+      <p class="platform">平台</p>
+      <p class="currently">目前</p>
+      <p class="adjustment">调整</p>
+      <p class="limit">限制</p>
+    </div>
+    <div>
+      <div class="grayLine"></div>
+      <div class="bonusWrap">
+        <p class="platform"></p>
+        <p class="currently"></p>
+        <p class="limit"></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="proxy content">
+        <div class="proxyBg">
+            <router-link
+                class="proxy-options-item"
+                v-for="item in proxy"
+                :to="item.href"
+            >
+                <div :class="item.name">
+                    <span>
+                            {{ item.optionFont }}
+                    </span>
+                </div>
+                
+            </router-link>
+        </div>
+    </div>

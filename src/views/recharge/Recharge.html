@@ -1,0 +1,18 @@
+<!-- 充值选单 -->
+<div class="content recharge">
+  <div class="recharge-content" v-if="$route.path =='/recharge'">
+    <router-link to="" 
+        class="recharge-box"
+        v-for="item in recharge"
+        @click.native = "test(item)"
+       
+        >
+        <img :src="item.src"/>
+        <h2>{{ item.rechargeName }}</h2>
+
+    </router-link>
+  </div>
+  <!-- 转账页面 -->
+  <router-view/>
+  
+</div>

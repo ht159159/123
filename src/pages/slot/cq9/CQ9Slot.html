@@ -1,0 +1,66 @@
+<div class="cq9Wrap">
+  <div class="searchWrap" v-show="searchFun">
+    <div class="searchBK">
+      <img src="@/assets/img/icon_index_gray_search.svg" alt="" />
+      <input type="text" v-model="searchText"/>
+    </div>
+  </div>
+  <div class="GameSelectWrap">
+    <div class="GameSelect" @click="selectGame('0')">
+      <p>全部</p>
+      <div class="gameNav_button" v-show="gameSelect==0"></div>
+    </div>
+    <div class="GameSelect" @click="selectGame('1')">
+      <p>热门</p>
+      <div class="gameNav_button" v-show="gameSelect==1"></div>
+    </div>
+    <div class="GameSelect" @click="selectGame('2')">
+      <p>最近</p>
+      <div class="gameNav_button" v-show="gameSelect==2"></div>
+    </div>
+  </div>
+  <div class="GameWrap">
+    <div class="allGame" v-show="gameSelect==0">
+      <div
+        class="GameTypeContent"
+        v-for="(game,index) in searchDataFun"
+        @click="clickgame(game.gameID)"
+      >
+        <a class="GameTypeWrap">
+          <div class="GameTypeImgWrap">
+            <img :src="game.GameImgUrl" alt="" />
+          </div>
+          <p>{{ game.gameName }}</p>
+        </a>
+      </div>
+    </div>
+    <div class="hotGame" v-show="gameSelect==1">
+      <div
+        class="hotGameTypeContent"
+        v-for="(hotGm,index) in searchHotFun"
+        @click="clickgame(hotGm.gameID)"
+      >
+        <a class="hotGameTypeWrap">
+          <div class="hotGameTypeImgWrap">
+            <img :src="hotGm.GameImgUrl" alt="" />
+          </div>
+          <p>{{ hotGm.gameName }}</p>
+        </a>
+      </div>
+    </div>
+    <div class="topGame" v-show="gameSelect==2">
+      <div
+        class="topGameTypeContent"
+        v-for="(topGm,index) in searchTopFun"
+        @click="clickgame(topGm.gameID)"
+      >
+        <a class="topGameTypeWrap">
+          <div class="topGameTypeImgWrap">
+            <img :src="topGm.GameImgUrl" alt="" />
+          </div>
+          <p>{{ topGm.gameName }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

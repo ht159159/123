@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,UAAU,EAAE,QAAQ;EACpB,UAAU,EAAE,OAAO;CAUtB;;AAZD,AAGI,eAHW,CAGX,OAAO,CAAC;EACJ,WAAW,EAAE,MAAM;EACnB,QAAQ,EAAE,QAAQ;CACrB;;AANL,AAOI,eAPW,CAOX,WAAW,CAAC;EACR,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,kBAAkB;CAChC",
+    "sources": [
+        "linkqrCode.scss"
+    ],
+    "names": [],
+    "file": "linkqrCode.css"
+}

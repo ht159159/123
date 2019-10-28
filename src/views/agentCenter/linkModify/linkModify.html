@@ -1,0 +1,73 @@
+<div class="linkModifyWrap">
+  <div class="topregisteredWrap">
+    <div class="accountName">
+      <p class="topRight">名称</p>
+      <div>
+        <input
+          type="text"
+          placeholder="请输入名称"
+          v-model="urlMemberList.name"
+        />
+      </div>
+    </div>
+    <div class="grayLineWrap">
+      <div class="grayLine"></div>
+    </div>
+    <div class="accountType">
+      <p class="topRight">账号类别</p>
+      <div>{{ urlMemberList.memberTypeName }}</div>
+    </div>
+    <div class="grayLineWrap">
+      <div class="grayLine"></div>
+    </div>
+    <div class="linkStatus">
+      <p class="topRight">状态</p>
+      <div class="statusSelect">
+        <p @click="clickStatus(linkStatusNum)">{{ linkStatusName }}</p>
+        <div class="down-arrow"></div>
+        <ul class="UCoption" v-show="linkStatus==true">
+          <li @click="clickStatus(0)">停用</li>
+          <li @click="clickStatus(1)">正常</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grayLineWrap">
+      <div class="grayLine"></div>
+    </div>
+    <div class="submitBtn">
+      <p @click="updateUrl()">提交</p>
+    </div>
+  </div>
+  <div>
+    <div class="bonusWrap">
+      <div class="bonusTitle">奖金组</div>
+      <div class="grayLineWrap">
+            <div class="grayLine"></div>
+          </div>
+      <div v-for="(item,Index) in urlMemberList.refundInfo">
+        <div class="bonusData">
+          <p>{{ item.spName }}</p>
+          <p>{{ item.multiple }}</p>
+        </div>
+        <div class="grayLineWrap">
+          <div class="grayLine"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bonusWrap">
+      <div class="bonusTitle">反水</div>
+      <div class="grayLineWrap">
+            <div class="grayLine"></div>
+          </div>
+      <div v-for="(item,Index) in urlMemberList.profitInfo">
+        <div class="bonusData">
+          <p>{{ item.spName }}</p>
+          <p>{{ item.rebatRateEdit }}</p>
+        </div>
+        <div class="grayLineWrap">
+          <div class="grayLine"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

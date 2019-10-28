@@ -1,0 +1,118 @@
+<div class="depositReport content">
+    <div class="recordSearch">
+        <div class="record-title">
+            <label for="startTime">时间</label>
+            <input
+                type="date"
+                id="startTime"
+                required="required"
+                v-model="startTime"
+            >
+            <label for="endTime">至</label>
+            <input
+                type="date"
+                id="endTime"
+                required="required"
+                v-model="endTime"
+            >
+
+        </div>
+        <div class="platformBox">
+            <label for="platformSelector">交易类型
+            </label>
+
+            <select
+                name=""
+                id="platformSelector"
+                v-model="platform"
+            >
+                <option :value="firstPlatform">全部</option>
+                <option
+                    v-for="(option,opidx) in transType"
+                    :value="option.transType"
+                >{{ option.typeName }}</option>
+            </select>
+            <div class="down-arrowBox">
+                <div class="down-arrow"></div>
+            </div>
+
+        </div>
+        <div class="timeSelector">
+            <div
+                v-for="item in timeSelector"
+                @click="quickdate(item.dayValue)"
+            >
+                {{item.time}}
+            </div>
+            <button
+                class="serchRecord"
+                @click="platformSeach()"
+            >查询</button>
+        </div>
+    </div>
+    <div class="depositReportContent">
+        <div class="contentList">
+            <div class="listTitle">
+                <div>交易时间</div>
+                <div>交易类型</div>
+                <div>申请金额</div>
+                <div>交易金额</div>
+                <div>红利</div>
+                <div>手续费</div>
+                <div>交易状态</div>
+                <div>交易单号</div>
+            </div>
+            <div
+                class="listContent"
+                v-for="(item,i) in memberTransactionLog"
+            >
+                <div>{{item.logTime}}</div>
+                <div v-if="item.transType == 1">存款</div>
+                <div v-if="item.transType == 2">提款</div>
+                <div>{{item.appAmt}}</div>
+                <div>{{item.realAmt}}</div>
+                <div>{{item.bonus}}</div>
+                <div>{{item.fee}}</div>
+                <div v-if="item.status == 2">不通过</div>
+                <div v-if="item.status == 1">通过</div>
+                <div v-if="item.transType == 1">{{item.logID}}</div>
+                <div
+                    class="withdrawal"
+                    @click="withdrawalDetail(i)"
+                    v-else
+                >{{item.logID}}</div>
+            </div>
+            <div
+                class="totale"
+                v-if="memberTransactionLog!=''"
+            >
+                <div>合计</div>
+                <div></div>
+                <div>{{memberTransactionLogInfo.totalAppAmt}}</div>
+                <div>{{memberTransactionLogInfo.totalRealAmt}}</div>
+                <div>{{memberTransactionLogInfo.totalBonus}}</div>
+                <div>{{memberTransactionLogInfo.totalFee}}</div>
+            </div>
+            <div
+                class="noData"
+                v-if="memberTransactionLog==''"
+            >
+                <div>暂无资料</div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="withdrawalDetailBg"
+        v-if="withdrawalDetailShow"
+        @click="withdrawalDetailClose"
+    >
+        <div
+            class="withdrawalDetailBox"
+            @click.stop=""
+        >
+            <div>开户银行 : {{memberTransactionLog[withdrawalSelector].accBank}}</div>
+            <div>银行卡号 : {{memberTransactionLog[withdrawalSelector].accID}}</div>
+            <div>开户姓名 : {{memberTransactionLog[withdrawalSelector].accName}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="special">
+  <div class="special_option_wrap">
+    <!-- 万千百十个 -->
+    <div class="special_option">
+      <label>万位
+        <input style="width:20px;" type="checkbox" value="P1" checked="checked" v-model="hookCheck"/>
+        <span class="special_option_item"></span>
+      </label>
+      <label>千位
+        <input style="width:20px;" type="checkbox" value="P2" v-model="hookCheck" />
+        <span class="special_option_item"></span>
+      </label>
+      <label>百位
+        <input style="width:20px;" type="checkbox" value="P3" v-model="hookCheck"/>
+        <span class="special_option_item"></span>
+      </label>
+      <label>十位
+        <input style="width:20px;" type="checkbox" value="P4" v-model="hookCheck" />
+        <span class="special_option_item"></span>
+      </label>
+      <label>个位
+        <input style="width:20px;" type="checkbox" value="P5" v-model="hookCheck"/>
+        <span class="special_option_item"></span>
+      </label>
+    </div>
+  </div>
+  <div class="special_option_text">
+      <font>温馨提示：您选择了</font><span class="position color-red">{{ hookCheck.length }}</span><font>个位置﹐系统自动根据组合成 </font><span class="plan color-red">{{ scheme }}</span><font>方案</font>
+    </div>
+</div>

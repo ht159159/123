@@ -1,0 +1,252 @@
+.proxy {
+    min-height: 90vmax;
+}
+
+.proxyBg {
+    width: 88vmin;
+    height: 133.3vmin;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 0 auto;
+    margin-top: 11.5vmax;
+}
+
+.proxy-options-item {
+    width: 42.7vmin;
+    height: 42.7vmin;
+}
+.proxy-options-item span{
+    font-family: MicrosoftJhengHei;
+    position: absolute;
+    right: 6.7vmin;
+    bottom: 4.9vmax;
+    font-size: 14px;
+    color: #fff;
+}
+
+.teamManagementIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #f1929c, #e35e74);
+}
+
+.teamManagementIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_teamManagement_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamManagementIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_teamManagement_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.linkManagementIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #98dea4, #62a76e);
+}
+
+.linkManagementIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_linkManagement_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.linkManagementIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_linkManagement_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamOverviewIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #84b2ef, #535bc7);
+}
+
+.teamOverviewIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_teamOverview_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamOverviewIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_teamOverview_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamReportIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #ef98ff, #9177ff);
+}
+
+.teamReportIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_teamReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamReportIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_teamReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.teamReportIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #ef98ff, #9177ff);
+}
+
+.teamReportIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_teamReport_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamReportIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_teamReport_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamBetIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #98dea4, #62a76e);
+}
+
+.teamBetIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_teamBet_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.teamBetIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_teamBet_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.transactionDetailsIconBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5.3vmin;
+    background: linear-gradient(to bottom, #f1929c, #e35e74);
+}
+
+.transactionDetailsIconBg::after {
+    content: "";
+    position: absolute;
+    width: 21.3vmin;
+    height: 21.3vmin;
+    right: 2.7vmin;
+    top: 1.5vmax;
+    background-image: url("../../assets/img/icon_transactionDetails_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.transactionDetailsIconBg::before {
+    content: "";
+    position: absolute;
+    width: 12.3vmin;
+    height: 12.3vmin;
+    left: 6.7vmin;
+    bottom: 3vmax;
+    background-image: url("../../assets/img/icon_transactionDetails_w.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}

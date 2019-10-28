@@ -1,0 +1,60 @@
+<div>
+  <div class="row2"
+    :class="{credit:$route.path.indexOf('credit')> -1}">
+    <!-- 玩法选择 -->
+    <div class="gameTitle">
+      <div class="gameTitleLeft" @click="IsShowFB()">
+        <div>玩法选择</div>
+        <div>{{ gameMenu[offTitle].name }}</div>
+        <div class="titleChecked">
+          {{ gameMenu[this.offTitle].sub[OffSubTitle].subName }}
+        </div>
+      </div>
+      <div class="slideDown" @click="IsShowFB()"></div>
+    </div>
+    <div class="gamePlay" @click="showPlayFb()">
+      <div class="gamwDescription"></div>
+      <span>玩法</span>
+    </div>
+  </div>
+  <!-- 弹窗 -->
+  <transition name="jumpWindow">
+      <div class="PS" v-show="isShowFB">
+          <div class="palySelect">
+            <div class="psTitle">
+              <span>玩法选择</span>
+              <a class="btnClose" @click="IsShowFB()"></a>
+            </div>           
+            <div class="block-wrap">
+              <div class="block" v-for="(item,offTitleIndex) in gameMenu" v-if="item.open==null || item.open==true">
+                  <div class="block-left">{{ item.name }}</div>
+                  <div class="block-right">
+                    <div
+                      class="playUnchecked"
+                      v-for="(subItem,offPlayListIndex) in item.sub"
+                      @click="clickOffical(offTitleIndex,offPlayListIndex)"
+                      :class="{'playChecked':offTitle == offTitleIndex && OffSubTitle == offPlayListIndex}"
+                    >
+                      <h2>{{ subItem.subName }}</h2>
+                    </div>
+                  </div>
+                </div>
+            </div>      
+          </div>
+        </div>
+  </transition>
+  <div class="mask" v-show="isShowFB" @click="IsShowFB()"></div>
+  <!-- 玩法弹窗 -->
+  <div class="gamePlayFB" v-show="isshowPlayFb">
+    <div class="mask"></div>
+    <div class="gamePlayFBWrap">
+      <a class="btnClose" @click="showPlayFb()"></a>
+      <div class="gamePlayContent">
+        <h2>玩法说明</h2>
+        <div class="des-wrap">
+            <span v-html="gameMenu[offTitle].sub[OffSubTitle].gameDes"></span>      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

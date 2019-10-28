@@ -1,0 +1,48 @@
+<div class="linkManagement">
+  <div>
+    <router-link class="linkRegistered" to="/agentCenter/linkRegistered" 
+      ><p>
+        +
+      </p></router-link
+    >
+  </div>
+  <div class="linkWrap">
+    <div class="userWrap">
+      <div class="flex linkName">
+        <p>名称</p>
+        <img src="@/assets/img/Mask Group 65.svg" alt="" />
+      </div>
+      <div class="category">
+        <p>类别</p>
+      </div>
+      <div class="status">
+        <p>状态</p>
+      </div>
+      <div class="operating">
+        <p>操作</p>
+      </div>
+    </div>
+    <div class="grayLine"></div>
+    <!-- //////////链结input放置区//////////// -->
+    <input class="copyURL" id="js-copyURL" type="text" value="0">
+    <!-- ////////////////////// -->
+    <div class="userWrap" v-for="(item,Index) in urlMemberList">
+      <div class="flex linkName">
+        <img src="@/assets/img/icon_list_user_green.svg" alt="" />
+        <p>{{item.name}}</p>
+      </div>
+      <div class="category">
+        <p>{{item.memberTypeName}}</p>
+      </div>
+      <div class="status">
+        <p>{{item.statusName}}</p>
+      </div>
+      <div class="operating">
+        <img class="operatingImg" src="@/assets/img/Mask Group 72.svg" alt="" @click="linkModify(Index)"/>
+        <img class="operatingImg" src="@/assets/img/Mask Group 73.svg" alt="" @click="urlCreatePage(item.code)"/>
+        <img class="operatingImg" src="@/assets/img/Mask Group 71.svg" alt="" @click="copylink(item.code)"/>
+        <img src="@/assets/img/Mask Group 70.svg" alt="" @click="openqrCode(item.code)"/>
+      </div>
+    </div>
+  </div>
+</div>

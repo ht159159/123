@@ -1,0 +1,401 @@
+.betReport {
+    min-height: 90vmax;
+    padding: 0;
+    padding-top: 7.3vmax;
+    /* padding-left: 4vmin;
+    padding-right: 4vmin; */
+}
+
+.recordSearch {
+    background-color: #fff;
+    padding-left: 4vmin;
+    padding-right: 4vmin;
+}
+
+.record-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2.1vmax 0;
+    /* padding: 0 15px; */
+}
+
+.record-title label {
+    font-size: 3.7vmin;
+    align-self: center;
+    margin: 0 1.33vmin;
+    padding-top: 0.5vmax;
+}
+
+.record-title label:nth-of-type(1) {
+    font-size: 3.7vmin;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-right: 1.33vmin;
+    margin-left: 0;
+    padding-top: 0.5vmax;
+}
+
+.serchRecord {
+    width: 18.67vmin;
+    height: 4.5vmax;
+    border-radius: 4vmin;
+    box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+    border: none;
+    color: #fff;
+    margin-left: 1.33vmin;
+    align-self: center;
+}
+
+#startTime,
+#endTime {
+    width: 28.67vmin;
+    border-radius: 4.8vmin;
+    background-color: #ffffff;
+    border: none;
+    color: #999999;
+    align-self: center;
+    font-size: 3.2vmin;
+    -webkit-appearance: none;
+    display: block;
+    text-align: right;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.platformBox {
+    width: 100%;
+    height: 5.4vmax;
+    font-size: 3.7vmin;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.3vmin solid #c2c2c2;
+}
+
+.platformBox label {
+    align-self: center;
+}
+
+.platformBox select {
+    width: 92%;
+    height: 5.4vmax;
+    border: none;
+    background: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-align-last: center;
+    z-index: 1;
+}
+
+option {
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari 和 Chrome */
+    appearance: none;
+}
+
+select:focus {
+    outline: 0;
+}
+
+.platform {
+    /* margin-right: 0px */
+}
+
+.down-arrowBox {
+    position: absolute;
+    right: 0;
+}
+
+/* // 下箭头 */
+.down-arrow {
+    display: inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 2.4vmax;
+    /* margin-right: 25px; */
+}
+
+.down-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 3.2vmin;
+    width: 1.8vmax;
+    border-width: 0 0.5vmin 0.5vmin 0;
+    border-color: #666;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+    position: absolute;
+}
+
+.timeSelector {
+    width: 100%;
+    height: 4.5vmax;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3.7vmin;
+    color: #666;
+    margin: 2.2vmax 0;
+}
+
+.timeSelector div {
+    width: 10.7vmin;
+    height: 3.6vmax;
+    color: #666;
+    text-align: center;
+    line-height: 3.6vmax;
+    border-radius: 1.3vmin;
+    background-color: #f2f2f2;
+}
+
+.betReportContent {
+    width: 100%;
+    padding: 3.6vmax 4vmin;
+    padding-bottom: 8.2vmax;
+    box-sizing: border-box;
+}
+
+.contentTitle {
+    height: 6vmax;
+    border-radius: 1.3vmin;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5vmax;
+
+}
+
+.contentTitle nav {
+    font-size: 3.7vmin;
+}
+
+.backTop {
+    width: 18.67vmin;
+    height: 3vmax;
+    font-size: 3.2vmin;
+    border-radius: 4vmin;
+    font-weight: normal;
+    box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+    border: none;
+    color: #fff;
+    margin-left: 1.33vmin;
+    align-self: center;
+}
+
+.contentList {
+    border-radius: 1.3vmin;
+    background-color: #fff;
+    margin-top: 1.5vmax;
+}
+
+.listTitle,
+.listContent,
+.totale {
+    height: 5.4vmax;
+    padding: 0 2.7vmin;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3.7vmin;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 0.1vmax solid #f2f2f2;
+}
+
+.listTitle div,
+.listContent div,
+.totale div {
+    text-align: right;
+}
+
+.listTitle div:nth-child(1) {
+    width: 21.3vmin;
+    text-align: left;
+}
+
+.listContent div:nth-child(1) {
+    width: 21.3vmin;
+    color: #feb433;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.totale div:nth-child(1) {
+    width: 21.3vmin;
+    text-align: left;
+}
+
+.listTitle div:nth-child(2) {
+    width: 14.9vmin;
+}
+
+.listContent div:nth-child(2) {
+    width: 14.9vmin;
+}
+
+.totale div:nth-child(2) {
+    width: 14.9vmin;
+}
+
+.listTitle div:nth-child(3) {
+    width: 17.3vmin;
+}
+
+.listContent div:nth-child(3) {
+    width: 17.3vmin;
+}
+
+.totale div:nth-child(3) {
+    width: 17.3vmin;
+}
+
+.listTitle div:nth-child(4) {
+    width: 16vmin;
+}
+
+.listContent div:nth-child(4) {
+    width: 16vmin;
+}
+
+.totale div:nth-child(4) {
+    width: 16vmin;
+}
+
+.plus {
+    color: #80c269;
+}
+
+.deficit {
+    color: #ff2a2a;
+}
+
+.noData {
+    text-align: center;
+}
+
+.detail {
+    width: 100%;
+    height: -webkit-fill-available;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f2f2f2;
+    z-index: 5;
+    overflow-x: hidden;
+
+}
+
+.detail .detailNav {
+    width: 100%;
+    height: 7.2vmax;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 4vmin;
+}
+
+.left-arrow {
+    display: inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 2.4vmax;
+}
+
+.left-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 2.7vmin;
+    width: 1.5vmax;
+    border-width: 0.5vmin 0.5vmin 0 0;
+    border-color: #feb433;
+    border-style: solid;
+    transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
+}
+
+.right-arrow {
+    display: inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 2.4vmax;
+}
+
+.right-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 2.7vmin;
+    width: 1.5vmax;
+    border-width: 0.5vmin 0.5vmin 0 0;
+    border-color: #feb433;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.detailNavConten {
+    margin-left: 33.3vmin;
+}
+
+.detail .detailContent {
+    width: 91.7vmin;
+    height: auto;
+    background: #fff;
+    border-radius: 1.3vmin;
+    margin: 0 auto;
+    margin-top: 3vmax;
+    margin-top: 9vmax;
+    margin-bottom: 10.5vmax;
+}
+
+.detailContent ul {
+    padding: 1.5vmax 6.7vmin;
+    box-sizing: border-box;
+}
+
+.detailContent ul li {
+    display: flex;
+    align-items: baseline;
+    padding: 1vmax 0px;
+    margin-bottom: 1.5vmax;
+    box-sizing: border-box;
+    border-bottom: 0.3vmin solid #c2c2c2;
+    font-size: 4.3vmin;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: left;
+    color: #666666;
+}
+
+.detailContent ul li:last-child div:last-child {
+    color: #ff2a2a;
+}
+
+.listName {
+    width: 42%;
+}
+
+.betContent {
+    color: #feb433;
+}
+
+.detailValue {
+    font-size: 3.7vmin;
+}
+
+.betData{
+    display: flex;
+}

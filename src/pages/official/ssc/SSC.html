@@ -1,0 +1,65 @@
+<div class="wrapper SSC">
+    <div class="panel-wrap">
+        <HistoricalboardComponent :_time="time"/>
+        <!-- v-on:clickOff 监听玩法选择有无变动 -->
+        <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu"/>
+    </div>
+    <div :class="{'dontTouch':donotTouch}">
+        <!-- all of game paly -->
+        <div class="gamePlayName" 
+        v-for="(item,itemIndex) in gameMenu"
+        :class="item.name">
+            <div v-for="(subItem,subItemIndex) in item.sub"
+            :class ="[subItem.subName,{gameBackground:offTitle == itemIndex && OffSubTitle == subItemIndex}]">
+                <div class="contentW" 
+                :class="subItem.shortName"
+                v-if="offTitle == itemIndex && OffSubTitle == subItemIndex">
+                    <div class="game" v-for="(sort,sortIndex) in subItem.classification">
+                        <div class="gameTitle">
+                            <span> {{ sort.classificationNum }} </span>
+                            <span v-if="sortIndex == 0">赔率：{{ subItem.oddsArr[0].odds2>0?subItem.oddsArr[0].odds2 +' | '+subItem.oddsArr[0].odds : subItem.oddsArr[0].odds}}</span>
+                        </div>
+                        <!-- 万千百十个打勾组件 -->
+                        <Special v-show="subItem.special != null && sortIndex == 0" v-on:hook ="hookCheckfunc" :dataGroups="sort.classificationArr" :scheme = "scheme"/>
+                        <!-- 全大小单双清組件 -->
+                        <Option_slideComponent :dataGroups="sort.classificationArr" :_option_slide_idx.sync="sort.option_slide_idx" :sortIndex = "sortIndex" v-show="subItem.optionSlide == true"/>
+                        
+                        <div :class="subItem.contentStyle == null ?'gameContent':'gameContent2'">
+                            <div :class="[{'playActive': num.checked},subItem.contentStyle == null?'gameBox_6':'gameBox_10']"
+                            v-for="(num,numidx) in sort.classificationArr"
+                            @click="checkNum(sort.classificationArr,numidx)" >
+                                <div class="gameBoxWrap">
+                                    <span :id="num.id">{{num.play}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>  
+       <!-- gamePlay end -->
+    <BettingFieldComponent ref="bf"
+    :barMax="barMax" 
+    :forbet="forbet" 
+    :rate.sync="rebatRate"
+    :quantity="quantity"
+    :time="time"
+    :issueTrace="issueTrace"
+     />
+     <div class="lds-spinner" v-show="mask">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="mask" v-show="mask"></div>
+</div>

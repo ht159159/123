@@ -1,0 +1,25 @@
+<div class="UserWalletTransferAccountType content">
+    <div
+        class="accountTypeBox"
+        v-for="(item,i) in accountType"
+        :class="{accountTypeSelector:accountTypeId == i || transType ==i}"
+        @click="accountTypeSelector(i)"
+    >
+        <div class="accountTypeTitle">{{item.title}}</div>
+        <div class="accountTypeContent">{{item.content}}</div>
+        <div class="icon_check"></div>
+    </div>
+    <div v-if="transType==0">智充宝<input
+            type="text"
+            class="chInputBox"
+            onkeyup="value=value.replace(/[^\d]/g,'') "
+            placeholder="请输入整数金额"
+            v-model="autoTransAmt"
+        ></div>
+    <div
+        class="accountTypeBtn"
+        @click="accountTypeSubmit"
+    >
+        提交
+    </div>
+</div>

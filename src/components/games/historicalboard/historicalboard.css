@@ -1,0 +1,317 @@
+/*小球顏色*/
+
+.redback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    background-color: #eb6877;
+    border-radius: 3.2vmin;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+
+.greenback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    background-color: #80c269;
+    border-radius: 3.2vmin;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+
+.blueback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    background-color: #556fb5;
+    border-radius: 3.2vmin;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+
+.noneback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    color: #666666;
+    font-weight: bold;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+
+.yellowback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    background-color: rgba(255, 196, 0, 1);
+    border-radius: 3.2vmin;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+
+.yellowBall .yellowback {
+    background-color: #feb433;
+    border-radius: 3.2vmin;
+}
+.greyback {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    background-color: #bfbfbf;
+    border-radius: 3.2vmin;
+    text-align: center;
+    line-height: 6.4vmin;
+}
+/*大球颜色*/
+
+.big-redback {
+    background-color: #eb6877;
+    border-radius: 7.2vmin;
+}
+
+.big-greenback {
+    background-color: #80c269;
+    border-radius: 7.2vmin;
+}
+
+.big-blueback {
+    background-color: #556fb5;
+    border-radius: 7.2vmin;
+}
+
+.wrapper .row {
+    padding: 1.3vmax 4.3vmin 0;
+    width: 91.7vmin;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+}
+
+.wrapper .row .content1 {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #c2c2c2;
+    background-color: #fff;
+    height: 11vmax;
+    align-items: center;
+    border-radius: 1.3vmin 1.3vmin 0 0;
+}
+
+.row .content1 .date, .row .content2 .date {
+    display: flex;
+    align-items: center;
+}
+
+.row .content1 .ballnumber {
+    color: #fff;
+    width: 58vmin;
+}
+
+.row .content1 .ballnumber ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.7vmax 0;
+}
+
+.row .content1 .ballnumber ul:nth-of-type(1) li {
+    font-size: 3.3vmin;
+}
+
+.dice {
+    color: #fff;
+    width: 35vmin;
+    padding: 0 6.8vmin 0 13.47vmin;
+}
+
+.dice img {
+    width: 9.6vmin;
+    height: 9.6vmin;
+}
+
+.dice ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.7vmax 0;
+}
+
+.dice span {
+    color: #666666;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 9.6vmin;
+    height: 9.6vmin;
+    display: block;
+    text-align: center;
+    line-height: 9.6vmin;
+}
+
+.yellowBall {
+    color: #fff;
+    width: 40vmin;
+    margin: 0 4.8vmin 0 10.47vmin;
+}
+
+.yellowBall ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.7vmax 0;
+}
+
+.yellowBall ul li {
+    width: 6.4vmin;
+    height: 6.4vmin;
+    line-height: 6.4vmin;
+    border-radius: 50%;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin: 0 0.67vmin;
+    text-align: center;
+}
+
+.wrapper .row .content2 {
+    height: 4vmax;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0 0 1.3vmin 1.3vmin;
+    background-color: #fff;
+}
+
+.row .content2 .timeContentWrap {
+    width: 58vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.row .content2 .timeContentWrap img {
+    width: 3.7vmin;
+    height: 3vmin;
+}
+
+.row .content2 .timeContentWrap span {
+    margin: 0 2.1vmin;
+}
+
+.row .content2 .timeContentWrap .timeContent {
+    color: #ff2a2a;
+}
+
+.pknum {
+    color: #fff;
+    width: 58vmin;
+    
+}
+
+.pknum ul {
+    display: inline-flex;
+    justify-content: space-around;
+    margin: 0.7vmax 0;
+}
+
+.pknum ul li {
+    width: 5.4vmin;
+    height: 5.4vmin;
+    line-height: 5.4vmin;
+    border-radius: 5px;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin: 0 1px;
+    text-align: center;
+}
+  .PKred {
+    background-color: #ff001a;
+    color: #ffffff;
+  }
+  .PKgreen {
+    background-color: #32c533;
+    color: #ffffff;
+  }
+  .PKwaterBlue {
+    background-color: #008cfa;
+    color: #ffffff;
+  }
+  .PKblue {
+    background-color: #11d6d3;
+    color: #ffffff;
+  }
+  .PKpurple {
+    background-color: #4224f8;
+    color: #ffffff;
+  }
+  .PKgray {
+    background-color: #a5a5a5;
+    color: #ffffff;
+  }
+  .PKorange {
+    background-color: #ff7022;
+    color: #ffffff;
+  }
+  .PKdeepGray {
+    background-color: #4d4d4d;
+    color: #ffffff;
+  }
+  .PKyellow {
+    background-color: #ffca3c;
+    color: #ffffff;
+  }
+  .PKcoffee {
+    background-color: #790007;
+    color: #ffffff;
+  }  
+
+/* 点击展开 */
+
+.HR {
+    position: fixed;
+    background-color: #f2f2f2;
+    z-index: 10;
+    touch-action: none;
+}
+
+.HR .HRWrap {
+    position: fixed;
+    z-index: 15;
+    width: 91.7vmin;
+    top: 23.7vmax;
+    padding: 0 4.2vmin 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.HR .HRWrap .content1 {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #c2c2c2;
+    background-color: #fff;
+    height: 11vmax;
+    align-items: center;
+}
+
+.HR .HRWrap .content1:nth-last-of-type(1) {
+    border-radius: 0 0 1.3vmin 1.3vmin;
+}
+
+.HR .HRWrap .content1 .date {
+    display: flex;
+    align-items: center;
+}
+
+.HR .HRWrap .content1 .ballnumber {
+    color: #fff;
+    width: 58vmin;
+}
+
+.HR .HRWrap .content1 .ballnumber ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.7vmax 0;
+}
+
+.HR .HRWrap .content1 .ballnumber ul:nth-of-type(1) li {
+    font-size: 3.3vmin;
+}
+
+.wrapper .fix {
+    position: fixed;
+    top: 7.3vmax;
+    left: calc((100% - 91.7vmin) / 2);
+    z-index: 15;
+    padding: 0;
+    margin: 1.2vmax 0 0;
+    border-radius: 1.3vmin 1.3vmin 0 0;
+}

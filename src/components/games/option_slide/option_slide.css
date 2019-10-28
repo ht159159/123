@@ -1,0 +1,35 @@
+/* 全大小单双清 共用*/
+
+.option_slide_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.option_slide {
+    width: 100%;
+    margin: 0 3vmin;
+}
+
+.option_slide .option_wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.option_slide .option_wrap .optionBox {
+    width: 11.7vmin;
+    height: 11.7vmin;
+    font-weight: bold;
+    font-size: 4.3vmin;
+    margin: 1.1vmin 0;
+    text-align: center;
+    line-height: 11.7vmin;
+    background-color: #c2c2c2;
+    border-radius: 1.2vmin;
+    color: #fff;
+}
+
+.option_slide .option_wrap .optionActive {
+    background-color: #feb433;
+}

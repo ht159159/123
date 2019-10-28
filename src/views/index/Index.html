@@ -1,0 +1,180 @@
+<div class="index">
+    <div class="banner">
+      <img src="@/assets/img/banner01.png" alt>
+    </div>
+    <div class="notice" @click="notice = 1;mask = 1;">
+      <h2>網站公告</h2>
+      <Marquee :marqueeList="marqueelistNotice" height="4.5vmax" width="100%" color="#666666"  fontSize=" 4.3vw" />
+    </div>
+    <div class="nav">
+        <router-link to="/recharge">
+            <div>
+                <div class="icon_index_rechargeWrap">
+                    <img src="@/assets/img/icon_index_recharge.svg" alt>
+                </div>
+            </div>
+            <h4>充值</h4>        
+        </router-link >
+        <router-link to="/user/betRecord">
+            <div>
+                <div class="index_icon_management_withdrawWrap">
+                    <img src="@/assets/img/index_icon_management_withdraw.svg" alt>
+                </div>
+            </div>
+            <h4>提現</h4>        
+        </router-link>
+        <router-link to="/resultRecord">
+            <div>
+                <div class="icon_management_withdrawWrap">
+                    <img src="@/assets/img/icon_management_withdraw.svg" alt>
+                </div>
+            </div>
+            <h4>开奖记录</h4>
+        </router-link>
+        <router-link to="/promo">
+            <div>
+                <div class="icon_index_offerWrap">
+                    <img src="@/assets/img/icon_index_offer.svg" alt>
+                </div>
+            </div>
+            <h4>优惠活动</h4>
+        </router-link>
+    </div>
+    <div class="gameNav">
+        <div  @click ="clickGameType('2')">
+            <p>真人</p>
+            <div class="gameNav_button" v-if="gameNav==2"></div>
+        </div>
+        <div  @click ="clickGameType('1')">
+            <p>电子</p>
+            <div class="gameNav_button" v-if="gameNav==1"></div>
+        </div>
+        <div  @click ="clickGameType('6')">
+            <p>彩票</p>
+            <div class="gameNav_button" v-if="gameNav==6"></div>
+        </div>
+        <div  @click ="clickGameType('13')">
+            <p>棋牌</p>
+            <div class="gameNav_button" v-if="gameNav==13"></div>
+        </div>
+        <div  @click ="clickGameType('10')">
+            <p>体育</p>
+            <div class="gameNav_button" v-if="gameNav==10"></div>
+        </div>
+    </div>
+    <div class="gameTypeContent" v-if="gameNav==1">
+        <router-link :to="'/slot/cq9/'+gameType.spNameUS" v-bind:key="gameType.spNameCN" class="gameTypeWrap" v-for="(gameType,index) in gameNavType.d1">
+            <div class="gameTypeImgWrap">
+                <img :src="gameType.gameNavTypeImgUrl" alt="">
+            </div>
+            <p>{{gameType.spNameCN}}</p>
+        </router-link>
+    </div>
+    <div class="gameTypeContent" v-if="gameNav==13">
+        <router-link :to="'/d13/'+gameType.spNameUS" v-bind:key="gameType.spNameCN"  class="gameTypeWrap"  v-for="(gameType,index) in gameNavType.d13">
+            <div class="gameTypeImgWrap">
+                <img :src="gameType.gameNavTypeImgUrl" alt="">
+            </div>
+            <p>{{gameType.spNameCN}}</p>    
+        </router-link>
+    </div>
+    <div class="content" v-if="gameNav==6">
+        <div class="game-nav">
+            <h2 
+                @click ="changeGameType('0','gameType')"
+                :class="{gameTypeUsed:gameType == 0}" >
+                官方玩法
+            </h2>
+            <h2 
+                @click="changeGameType('1','gameType')"
+                :class="{gameTypeUsed:gameType == 1}">
+                娱乐城玩法
+            </h2>
+        </div>
+            <!-- 官方玩法 -->
+        <div class="game-content" 
+            v-show="gameType == 0">
+            <div class="game-item"
+                v-for="(item,box) in game[0].gameItem" :key="item.gameName">                
+                <a class="item-box"  
+                    @click="itemClick(box,'index')"
+                    :class="{itemUsed:itemClicked == box}"
+                    :style="test(box)">
+                    <img 
+                        v-show="itemClicked != box"
+                        :src="item.src" alt="" />
+                    <img 
+                        v-show="itemClicked == box"
+                        :src="item.srcOn" alt="" />
+                    <h2>{{ item.gameName }}</h2>
+                    <div>
+                        <p>官</p>     
+                    </div>
+                </a>
+                <div class="item-checked-box"
+                    v-show="itemClicked == box && noContent == 'yes'">
+                    <router-link class="subitem-box"                         
+                        v-for="(subItem,subBox) in item.sub"
+                        :key="subItem.gameCode"
+                        :to="'/'+game[0].router+'/'+subItem.routername+'/'+subItem.gameCode">
+                        <h3>{{ subItem.subName }}</h3>
+                    </router-link>
+                </div>    
+            </div>
+        </div>
+            <!-- 娱乐城玩法 -->
+        <div class="game-content" 
+            v-show="gameType == 1">
+            <div class="game-item"
+                v-for="(item,box) in game[1].gameItem ":key="item.gameName">
+                <a class="item-box"  
+                    @click="itemClick(box,'index')"
+                    :class="{itemUsed:itemClicked == box}"
+                    :style="test(box)">
+                    <img 
+                        v-show="itemClicked != box"
+                        :src="item.src" alt="" />
+                    <img 
+                        v-show="itemClicked == box"
+                        :src="(item.srcOn)" alt="" />
+                    <h2>{{ item.gameName }}</h2>
+                    <div>
+                        <p>娱</p>
+                    </div>
+                </a>
+                <div class="item-checked-box"
+                    v-show="itemClicked == box && noContent == 'yes'">
+                    <router-link class="subitem-box"
+                        v-for="(subItem,subBox) in item.sub"
+                        :key="subItem.gameCode"
+                        :to="'/'+game[1].router+'/'+subItem.routername+'/'+subItem.gameCode">
+                        <h3>{{ subItem.subName }}</h3>
+                    </router-link>
+                </div>       
+            </div>
+        </div>
+            <!-- 最新公告 -->
+        <transition name="jumpWindow">
+            <div id="notice" v-show="notice == 1">
+                <div class="n-title">
+                    <img  src="@/assets/img/icon_close_white.png" class="notice-close"  
+                                @click.stop="notice = 0 ;mask = 0"/>
+                    <h2>最新公告</h2>
+                </div>
+                <div class="n-content">
+                    <div class="message" 
+                        v-for="(item,index) in marqueelistNotice"
+                        @click="messageSelected = index"
+                        :class="{'messageSelected':messageSelected == index}">
+                        <h3>{{item.split(':')[0]}}</h3>
+                        <p>{{item.split(':')[1]}}</p>
+                        <p class="marqueeTime">{{ marqueelistTime[index]}}</p>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <div class="mask" v-show="mask == 1" @click="notice = 0 ;mask = 0">
+        </div>
+    </div>
+  </div>
+

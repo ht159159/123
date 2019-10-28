@@ -1,0 +1,122 @@
+<div class="userWalletTransfer content">
+    <div class="userWalletTransferBg">
+        <div class="masterAccount">
+            <div class="masterBalance">主要帐户：{{mainbalance}}</div>
+            <div class="masterBalanceBtn">
+                <div
+                    class="refresh"
+                    @click="getuserinfo"
+                >刷新</div>
+                <div
+                    class="recover"
+                    @click="alltransferOutWallet"
+                >一键回收</div>
+            </div>
+        </div>
+        <div class="accountType">
+            <div class="accountTypeTitle">帐户类型</div>
+            <div class="accountTypeChange">
+                <router-link to="/user/UserWalletTransfer/UserWalletTransferAccountType">
+                    {{accountTypeSelector}}
+                </router-link>
+                <div class="right-arrow"></div>
+            </div>
+        </div>
+        <div
+            class="accountList"
+            v-for="(item,i) in wallentList"
+        >
+            <img
+                :src="item.src"
+                alt=""
+            >
+            <div class="accountListContent">
+                <section class="ListContentTitle">
+                    {{item.spName}}
+                </section>
+                <section class="ListContentPoints">
+                    額度 : <span>{{item.points}}</span>
+                </section>
+            </div>
+            <div class="wallentBtn">
+                <div
+                    class="transferOut"
+                    @click="transOut(item)"
+                >转出</div>
+                <div
+                    class="transferOutAll"
+                    @click="transferOutOneWallet(item)"
+                >一键转出</div>
+                <div
+                    class="transferIn"
+                    @click="transIn(item)"
+                >转入</div>
+                <div
+                    class="transferInAll"
+                    @click="allTransferInWallet(item)"
+                >一键转入</div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="transferOutBg"
+        v-show="showtransfer"
+    >
+        <div class="transferBox">
+            <div class="transferBox-top">
+                <p>额度转换</p>
+            </div>
+            <div class="accountConent">
+                <div class="account">
+                    <div class="accountName">{{outspName}} :</div>
+                    <div class="accountMoney">{{outpoints}}</div>
+                </div>
+                <div class="down-arrow"></div>
+                <div class="masterAccount">
+                    <div class="masterAccountName">{{inspName}} :</div>
+                    <div class="masterAccountMoney">{{inpoints}}</div>
+                </div>
+                <div class="transferMoneyBox">
+                    <input
+                        onkeyup="value=value.replace(/[^\d]/g,'') "
+                        placeholder="请输入整数金额"
+                        class="transferMoney"
+                        v-model="transferAmount"
+                    />
+                    <div class="selectorMoney">
+                        <div
+                            class="moneyBtnBg"
+                            v-for="item in selectorMoney"
+                        >
+                            <input
+                                type="radio"
+                                id="one"
+                                :value="item.point"
+                                v-model="transferAmount"
+                            >
+                            <div
+                                class="moneyBtn"
+                                for="one"
+                            >{{item.point}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-wrap">
+                    <input
+                        type="submit"
+                        class="transferCancel"
+                        value="取消"
+                        @click="transferCancel"
+                    >
+                    <input
+                        type="submit"
+                        class="transferWallet"
+                        value="确定"
+                        @click="transferWallet"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

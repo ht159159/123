@@ -1,0 +1,31 @@
+<div class="userMessage content">
+    <div class="userMessageBg">
+        <div
+            class="messageBox"
+            :class="{messageBoxOpen:clickMsg == i}"
+            v-for="(item,i) in messageList"
+            @click="msg(i)"
+        >
+            <div class="messageIcon" :class="{messageIconSeletor:clickMsg == i}"
+            ></div>
+            <div class="messageContent">
+                <p class="msgTitle" :class="{msgSelector:clickMsg == i}">
+                    {{ item.msgTitle }}
+                </p>
+                <p class="msgTime" :class="{msgSelector:clickMsg == i}">
+                    {{ item.msgTime }}
+                </p>
+            </div>
+
+            <div class="down-arrow"  v-if="clickMsg != i"></div>
+            <div class="up-arrow"  v-if="clickMsg == i"></div>
+            <div
+                class="msgContent"
+                v-if="clickMsg == i"
+            >
+                {{ item.msgContent }}
+            </div>
+        </div>
+
+    </div>
+</div>

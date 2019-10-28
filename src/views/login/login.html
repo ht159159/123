@@ -1,0 +1,28 @@
+<div class="content login">
+    <div class="service-wrap">
+      <div class="service-info">
+        <img src="@/assets/img/icon_login_user@2x.png">
+        <div>
+            <input type="text" placeholder="用户名称" v-model.trim="input.loginID">
+        </div>
+      </div>
+      <div class="service-info">
+        <img src="@/assets/img/icon_login_passeord@2x.png" >
+        <div>
+            <input type="password" placeholder="会员密码" v-model.trim="input.loginPw">
+        </div>
+      </div>
+      <div class="service-info">
+        <img src="@/assets/img/icon_login_code@2x.png">
+        <div>
+            <input id="txt_vCode" type="text" placeholder="验证码" v-model.trim="input.loginCode" @keydown.enter="login">
+        </div>
+        <span class="verification" @click="createCode">{{vcode}}</span>
+      </div>
+      <div class="service-block">
+        <!-- <a href>忘记密码</a>
+        <a href>免费试玩</a> -->
+      </div>
+      <button class="login-button"  @click="login">登录</button>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-1{fill:#feb433}.cls-2{fill:none}
+        </style>
+    </defs>
+    <g id="icon_Menu" transform="translate(-15 -16)">
+        <path id="Menu" d="M-6160 14v-2h10v2zm0-6V6h16v2zm0-6V0h16v2z" class="cls-1" transform="translate(6175 17)"/>
+        <path id="Rectangle_1446" d="M0 0h16v16H0z" class="cls-2" data-name="Rectangle 1446" transform="translate(15 16)"/>
+    </g>
+</svg>

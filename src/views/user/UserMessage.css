@@ -1,0 +1,113 @@
+.userMessage {
+    min-height: 90vmax;
+    padding-top:7.3vmax;
+}
+.userMessageBg{
+    padding-top:3vmax;
+    width: 88vmin;
+    height: auto;
+}
+.messageBox{
+    width: 91.7vmin;
+    height: 10.5vmax;
+    background-color: #fff;
+    margin-bottom: 1.5vmax;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    align-items: center;
+}
+.messageIcon{
+    background-image: url("../../assets/img/icon_message_haveRead.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 5.3vmin;
+    width: 6.4vmin;
+    height: 6.4vmin;
+}
+
+.messageIconSeletor{
+    background-image: url("../../assets/img/icon_message_turnOn.png");
+}
+
+.messageBoxOpen{
+    height: auto;
+    background-color: #feb433;
+    padding-top: 3vmax;
+}
+
+.messageContent{
+    width: 70%;
+    font-size: 3.7vmin;
+}
+
+.msgTitle{
+    color: #666;
+    margin-bottom: 0.6vmax;
+}
+
+.msgTime{
+    color: #999;
+}
+
+.msgSelector{
+    color: #fff;
+}
+
+.msgContent{
+    width: 100%;
+    color: #fff;
+    word-wrap:break-word; 
+    padding: 3vmax 3.7vmin;
+    box-sizing: border-box;
+}
+
+/* 下箭头 */
+.down-arrow {
+    display :inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 4.3vmin;
+    margin-right: 2.7vmin;
+}
+
+.down-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 2.7vmin;
+    width: 2.7vmin;
+    border-width: 0 0.5vmin 0.5vmin 0;
+    border-color: #666666;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+    margin-top: -1.5vmax;
+}
+.up-arrow {
+    display :inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 4.3vmin;
+    margin-right: 2.7vmin;
+}
+
+.up-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 2.7vmin;
+    width: 2.7vmin;
+    border-width: 0 0.5vmin 0.5vmin 0;
+    border-color: #fff;
+    border-style: solid;
+    transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+    margin-top: -1.5vmax;
+}
+/* 加上active旋转成 上箭头 */
+.down-arrow.active::after {
+    transform-origin: center;
+    transform: rotate(-135deg);
+    transition: transform .3s;
+}

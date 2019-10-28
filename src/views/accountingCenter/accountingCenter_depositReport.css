@@ -1,0 +1,246 @@
+.depositReport {
+    min-height: 90vmax;
+    position: relative;
+    padding: 0;
+    padding-top: 7.3vmax;
+    /* padding-left: 4vmin;
+    padding-right: 4vmin; */
+}
+
+.recordSearch {
+    background-color: #fff;
+    padding-left: 4vmin;
+    padding-right: 4vmin;
+}
+
+.record-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2.1vmax 0;
+    /* padding: 0 15px; */
+}
+
+.record-title label {
+    font-size: 3.7vmin;
+    align-self: center;
+    margin: 0 1.33vmin;
+    padding-top: 0.5vmax;
+}
+
+.record-title label:nth-of-type(1) {
+    font-size: 3.7vmin;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-right: 1.33vmin;
+    margin-left: 0;
+    padding-top: 0.5vmax;
+}
+
+.serchRecord {
+    width: 18.67vmin;
+    height: 4.5vmax;
+    border-radius: 4vmin;
+    box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+    border: none;
+    color: #fff;
+    margin-left: 1.33vmin;
+    align-self: center;
+}
+
+#startTime,
+#endTime {
+    width: 28.67vmin;
+    border-radius: 4.8vmin;
+    background-color: #ffffff;
+    border: none;
+    color: #999999;
+    align-self: center;
+    font-size: 3.2vmin;
+    -webkit-appearance: none;
+    display: block;
+    text-align: right;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.platformBox {
+    width: 100%;
+    height: 5.4vmax;
+    font-size: 3.7vmin;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.3vmin solid #c2c2c2;
+}
+
+.platformBox label {
+    align-self: center;
+}
+
+.platformBox select {
+    width: 83%;
+    height: 5.4vmax;
+    border: none;
+    background: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-align-last: center;
+    z-index: 1;
+}
+
+option {
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari 和 Chrome */
+    appearance: none;
+}
+
+select:focus {
+    outline: 0;
+}
+
+.down-arrowBox {
+    position: absolute;
+    right: 0;
+}
+
+/* // 下箭头 */
+.down-arrow {
+    display: inline-block;
+    position: relative;
+    width: 4.3vmin;
+    height: 2.4vmax;
+}
+
+.down-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 3.2vmin;
+    width: 1.8vmax;
+    border-width: 0 0.5vmin 0.5vmin 0;
+    border-color: #666;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+    position: absolute;
+}
+
+.timeSelector {
+    width: 100%;
+    height: 4.5vmax;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3.7vmin;
+    color: #666;
+    margin: 2.2vmax 0;
+}
+
+.timeSelector div {
+    width: 10.7vmin;
+    height: 3.6vmax;
+    color: #666;
+    text-align: center;
+    line-height: 3.6vmax;
+    border-radius: 1.3vmin;
+    background-color: #f2f2f2;
+}
+
+.depositReportContent {
+    width: 100%;
+    padding: 3.6vmax 4vmin;
+    padding-bottom: 8.2vmax;
+    box-sizing: border-box;
+}
+
+.contentList {
+    border-radius: 1.3vmin;
+    background-color: #fff;
+    margin-top: 1.5vmax;
+    overflow: scroll;
+}
+
+.listTitle,
+.listContent,
+.totale {
+    width: max-content;
+    height: 5.4vmax;
+    padding: 0 2.7vmin;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3.7vmin;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 0.1vmax solid #f2f2f2;
+}
+
+.listTitle div,
+.listContent div,
+.totale div {
+    width: 21.3vmin;
+    text-align: right;
+}
+
+.listContent div:nth-child(1) {
+    width: 21.3vmin;
+    line-height: 2.2vmax;
+}
+
+.listTitle div:last-child,
+.listContent div:last-child {
+    width: 53.3vmin;
+}
+
+.withdrawal {
+    color: #feb433;
+    text-decoration: underline;
+}
+
+.noData {
+    text-align: center;
+}
+
+.withdrawalDetailBg {
+    width: 100%;
+    min-height: 90vmax;
+    position: absolute;
+}
+
+.withdrawalDetailBg::after {
+    content: '';
+    width: 100%;
+    height: 13.5vmax;
+    min-height: 90vmax;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.withdrawalDetailBox {
+    width: 66.7vmin;
+    height: 30vmax;
+    position: absolute;
+    top: calc((100% - 37.5vmax)/2);
+    left: calc((100% - 66.7vmin)/2);
+    background-color: #fff;
+    z-index: 2;
+    border-radius: 1.3vmin;
+    padding: 2.7vmin;
+    box-sizing: border-box;
+}
+
+.withdrawalDetailBox div {
+    height: 4.5vmax;
+    margin-top: 2.2vmax;
+    border-bottom: 0.3vmin solid #f2f2f2;
+}

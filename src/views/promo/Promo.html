@@ -1,0 +1,31 @@
+<div :class="{'dontTouch':$store.state.dontTouch}">
+<div class="promo content">
+  <div v-if="true">
+    <div
+      class="promoGroup"
+      v-for="(item,index) in promoList"
+      @click="promoContent = index">
+      <img :src="item.pmHeadMobile" />
+      <div class="promoGroupContent" v-show="promoContent == index">
+        <img
+          src="@/assets/img/icon_close.png"
+          class="close"
+          @click.stop="promoContent = undefined"
+        />
+        <h2>{{ item.pmName }}</h2>
+        <p v-html="item.pmDetail"></p>
+      </div>
+      <div class="mask" v-show="promoContent == index"
+      @click.stop="promoContent = undefined"></div>
+    </div>
+  </div>
+  <div class="maskGroup" v-else-if="true">
+    <img src="@/assets/img/img-mask-group.png" />
+    <p>暂无优惠活动</p>
+    <p>敬请期待</p>
+  </div>
+  <div class="promoMask">
+    
+  </div>
+</div>
+</div>

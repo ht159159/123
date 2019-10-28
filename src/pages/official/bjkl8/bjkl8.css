@@ -1,0 +1,278 @@
+.wrapper {
+    background-color: #f2f2f2;
+    height: 100%;
+    color: #666;
+    font-size: 3.7vmin;
+    padding-top: 7.1vmax;
+    font-family:"Microsoft JhengHei","Heiti TC",sans-serif;
+    overflow: hidden;
+    padding-bottom: 19.5vmax;
+  }
+  .panel-wrap{
+    position: fixed;
+    top: 7.2vmax;
+    left: calc((100% - 100.3vmin) / 2);
+    z-index: 8;
+    /* left: 50%;
+    transform: translateX(-50%); */
+  }
+  .playContent{
+    display: flex;
+    justify-content: center;
+  }
+  /* 字体颜色 */
+  .white {
+    color: #fff;
+  }
+  .orange {
+    color: #f57e2f;
+  }
+
+
+  /* 彩球背景颜色 */
+.redback{background-color: #eb6877;border-radius: 7.2vmin;}
+.greenback{background-color: #80c269;border-radius: 7.2vmin;}
+.blueback{background-color: #556fb5;border-radius: 7.2vmin;}
+.noneback{background-color: #bfbfbf;border-radius: 7.2vmin;}
+/*大球颜色*/
+.big-redback{background-color: #eb6877;border-radius: 7.2vmin;}
+.big-greenback{background-color: #80c269;border-radius: 7.2vmin;}
+.big-blueback{background-color: #556fb5;border-radius: 7.2vmin;}
+/* gamebox_4格共用 */
+.gameBox{
+    width: 21.3vmin;
+    height: 21.3vmin;
+    background-color: #fff;
+    margin: 1vmin;
+    border-radius:1.3vmin ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playActive.gameBox .gameBoxWrap span:nth-of-type(1){
+    color:#fff;
+}
+.playActive.gameBox .gameBoxWrap span:nth-of-type(2){
+    color:#fff;
+}
+.gameBox .gameBoxWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gameBox .gameBoxWrap span{
+    margin: 0.6vmax 0;
+}
+.gameBox .gameBoxWrap span:nth-of-type(1){
+    color:#999999;
+    font-weight: bold;
+    font-size: 4.3vmin;
+}
+.gameBox .gameBoxWrap span:nth-of-type(2){
+    color:#feb433;
+}
+
+
+/* gamebox_6格共用 */
+.gameBox_6_wrap{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-column-gap:0.25vmax;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px 3.3vmin 2vmax;
+}
+.gameBox_6{
+    width: 11.7vmin;
+    height:11.7vmin;
+    background-color: #fff;
+    margin: 1vmin;
+    border-radius:1.3vmin ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playActive .gameBox_6 .gameBoxWrap span:nth-of-type(1){
+    color:#fff;
+}
+.gameBox_6 .gameBoxWrap{
+    display: flex;
+    align-items: center;
+}
+.gameBox_6 .gameBoxWrap span{
+    width: 11.7vmin;
+    height: 11.7vmin;
+    color:#fff;
+    font-weight: bold;
+    font-size: 4.3vmin;
+    margin: 1.1vmin 0;
+    text-align: center;
+    line-height: 11.7vmin;
+}
+.wrapper .mix{
+    display: grid;
+    grid-template-columns:25% 25% 25% 25%;
+    grid-column-gap:0.25vmax;
+        
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    width: 91.7vmin;
+    height: 15vmax;
+    padding: 27.2vmax 0;
+}
+.mix .gameBox .gameBoxWrap span:nth-of-type(1){
+    width: 12.8vmin;
+    height: 12.8vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.wrapper .mix .playActive{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #feb433;
+    border-radius: 1.3vmin;
+}
+.wrapper .mix .playActive .gameBoxWrap span:nth-of-type(1){
+    background-color: #fff;
+    color: #feb433;
+}
+
+.mix .gameBox{
+    margin-left: 0;
+    
+}
+/*色波*/
+.wrapper .SB{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 91.7vmin; 
+    height:10vmin;
+    padding: 27.2vmax 0;    
+}
+.SB .gameBox .gameBoxWrap span:nth-of-type(1){
+    width: 12.8vmin;
+    height: 12.8vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.wrapper .SB .playActive{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #feb433;
+    border-radius: 1.3vmin;
+}
+.wrapper .SB .playActive .gameBoxWrap span:nth-of-type(1){
+    background-color: #fff;
+    color: #feb433;
+}
+
+.wrapper .bz{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 91.7vmin;
+    height:10vmin;
+    padding: 27.2vmax 0;
+}
+.bz .gameBox .gameBoxWrap span:nth-of-type(1){
+    width: 12.8vmin;
+    height: 12.8vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.wrapper .bz .playActive{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #feb433;
+    border-radius: 1.3vmin;
+}
+.wrapper .bz .playActive .gameBoxWrap span:nth-of-type(1){
+    background-color: #fff;
+    color: #feb433;
+}
+
+/*特码*/
+.wrapper .TM{
+    display: grid;
+    grid-template-columns:25% 25% 25% 25%;
+    grid-column-gap:0.25vmax;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 91.7vmin;
+    padding-top: 27.2vmax;
+}
+.TM .gameBox{
+    margin-left: 0;   
+}
+.wrapper .TM .playActive{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #feb433;
+    border-radius: 1.3vmin;
+}
+.wrapper .TM .playActive .gameBoxWrap span:nth-of-type(1){
+    background-color: #fff;
+    color: #feb433;
+}
+.TM .gameBox .gameBoxWrap span:nth-of-type(1){
+    width: 12.8vmin;
+    height: 12.8vmin;
+    text-align: center;
+    line-height: 12.8vmin;
+    color: #fff;
+}
+.TM .gameBox:nth-last-of-type(1){
+    margin-bottom: 7.8vmax;
+}
+
+.wrapper .tmb3 .contentWrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 1.3vmin;
+    width: 91.7vmin;
+    padding-top: 27.2vmax;
+}
+.tmb3 .contentWrap .gameTitle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2.7vmax 4vmin 0.5vmax;
+    height: 3.1vmax;
+}
+.tmb3 .contentWrap .gameTitle span:nth-of-type(1){
+    font-weight: bold;
+}
+.tmb3 .contentWrap .gameTitle span:nth-of-type(2){
+    color: #ff2a2a;
+}
+.wrapper .tmb3 .playActive{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #feb433;
+    border-radius: 7.2vmin;
+}
+.wrapper .tmb3 .playActive .gameBoxWrap span:nth-of-type(1){
+    color: #fff;
+    background-color: #feb433;
+}
+.tmb3 .gameBox_6 .gameBoxWrap span:nth-of-type(1){
+    width: 11.7vmin;
+    height: 11.7vmin;
+    text-align: center;
+    line-height: 12.8vmin;
+    color: #fff;
+}
+.tmb3 .contentWrap .gameBox_6 .gameBoxWrap .redback,
+.tmb3 .contentWrap .gameBox_6 .gameBoxWrap .blueback,
+.tmb3 .contentWrap .gameBox_6 .gameBoxWrap .greenback,
+.tmb3 .contentWrap .gameBox_6 .gameBoxWrap .noneback{
+    border-radius: 7.2vmin;
+}

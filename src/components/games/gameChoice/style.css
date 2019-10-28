@@ -1,0 +1,166 @@
+body{
+    
+    background-color: #f2f2f2;
+
+    height: 100%;
+    color: #666666;
+}
+
+/* row2 */
+.wrapper .row2{
+    margin-top: 2.7vmin;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper .row2 .gameTitle{
+    width: 78.4vmin;
+    height: 10.7vmin;
+    background-color: #fff;
+    border-radius:1.3vmin ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.row2 .gameTitle .gameTitleLeft{
+    width: 46.7vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.titleChecked{
+    color:#f57e2f;
+}
+.row2 .gameTitle .slideDown{
+    width: 4.3vmin;
+    height: 4.3vmin;
+    background: url('../../../assets/img/icon_list_down.png') no-repeat center;
+    background-size: 4.3vmin;
+}
+.wrapper .row2 .gamePlay{
+    margin-left: 2.7vmin;
+    width: 10.7vmin;
+    height: 10.7vmin;
+    background-color: #fff;
+    border-radius:1.3vmin ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color:#feb433;
+}
+.row2 .gamePlay .gamwDescription{
+    width: 5.3vmin;
+    height: 5.3vmin;
+    background: url('../../../assets/img/icon_gamedescription.svg');
+    background-size: 5.3vmin;
+}
+.row2 .gamePlay span{
+    font-size: 2.7vmin;
+    transform:scale(0.83);
+}
+
+/* 玩法选择弹窗 */
+.mask{
+    position: fixed;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 10;
+}
+.btnClose{
+    position: fixed;
+    top: 40.7vmin;
+    right: 15.7vmin;
+    background: url('../../../assets/img/icon_delete.svg')no-repeat;
+    background-size: 100%;
+    width: 4.3vmin;
+    height: 4.3vmin;
+    z-index: 10;
+}
+.palySelect{
+    width: 74.7vmin;
+    height: 106.7vmin;
+    position: fixed;
+    top: 37.1vmin;
+    left: calc((100% - 74.7vmin) /2);
+    z-index: 20;
+    border-radius: 1.3vmin;
+    background-color: #fff;
+    overflow: auto;
+}
+.PS .palySelect .psTitle{
+    width: 74.7vmin;
+    height: 10.7vmin;
+    background-image: linear-gradient(to bottom, #ffb933, #f57e2f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.3vmin 1.3vmin 0 0;
+    position: fixed;
+    z-index: 5;
+}
+.PS .palySelect .psTitle span{
+    font-weight: bold;
+    font-size: 4.3vmin;
+    color: #ffffff;
+}
+.PS .palySelect .psSelectBtn{
+    width: 100%;
+    height: 10.7vmin;
+    background-color: #f2f2f2;
+    display: flex;
+    font-size: 4.3vmin;
+    margin-top:10.7vmin;
+}
+.psSelectBtn>div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+}
+.psSelectBtn .line{
+    position: absolute;
+    left:34%;
+    bottom: 0;
+    background-color: #f57e2f;
+    width: 11.9vmin;
+    height: 0.6vmin;
+}
+.palySelect .block{
+    width: 100%;
+
+    box-sizing: border-box;
+    border-bottom: 1px solid #c2c2c2;
+    display: flex;
+    align-items:center;
+    font-size: 3.7vmin;
+}
+.palySelect .block .block-left{
+    width: 35%;
+    margin-left: 2.7vmin;
+}
+.palySelect .block .block-right{
+    width: 65%;
+}
+.palySelect .block .block-right .playUnchecked{
+    display: inline-block;
+    padding: 1.6vmin;
+    background-color: #f2f2f2;
+    border-radius: 1.3vmin;
+    margin: 1.9vmin;
+}
+.palySelect .block .block-right .playChecked{
+    display: inline-block;
+    padding: 1.6vmin;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #f57e2f;
+    border-radius: 1.3vmin;
+    color:#fff;
+    margin: 1.9vmin;
+}

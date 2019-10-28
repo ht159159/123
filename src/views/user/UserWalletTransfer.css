@@ -1,0 +1,328 @@
+.userWalletTransfer {
+    min-height: 90vmax;
+    padding-top: 7.3vmax;
+}
+
+.userWalletTransferBg {
+    padding-top: 3vmax;
+    width: 88vmin;
+    height: auto;
+}
+
+.userWalletTransferBg>div {
+    width: 91.7vmin;
+    background-color: #fff;
+}
+
+.masterAccount {
+    height: 6vmax;
+    margin-bottom: 1.5vmax;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.masterBalance {
+    font-size: 3.7vmin;
+    margin-left: 2.7vmin;
+}
+
+.masterBalanceBtn {
+    margin-right: 2.7vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.refresh {
+    width: 12vmin;
+    height: 3vmax;
+    font-size: 3.2vmin;
+    /* font-family: MicrosoftJhengHei; */
+    color: #fff;
+    border-radius: 2.7vmin;
+    background: linear-gradient(to bottom, #f1929c, #e35e74);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2.7vmin;
+
+}
+
+.recover {
+    width: 18.7vmin;
+    height: 3vmax;
+    font-size: 3.2vmin;
+    /* font-family: MicrosoftJhengHei; */
+    color: #fff;
+    border-radius: 2.7vmin;
+    background: linear-gradient(to bottom, #f1929c, #e35e74);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.accountType {
+    height: 6vmax;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3.7vmin;
+    margin-bottom: 1.5vmax;
+}
+
+.accountTypeTitle {
+    margin-left: 2.7vmin;
+}
+
+.accountTypeChange {
+    display: flex;
+    align-items: center;
+    color: #f57e2f;
+}
+
+.right-arrow {
+    display: inline-block;
+    position: relative;
+    width: 2.7vmin;
+    height: 2.7vmin;
+    margin-top: 0.6vmax;
+    margin-right: 2.7vmin;
+    margin-left: 2.7vmin;
+}
+
+.right-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 2.7vmin;
+    width: 2.7vmin;
+    border-width: 0.5vmin 0.5vmin 0 0;
+    border-color: #666666;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    right: 1.6vmin;
+    margin-top: -1.3vmax;
+}
+
+.accountList {
+    height: 11.4vmax;
+    margin-bottom: 1.5vmax;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.accountList img {
+    width: 10.7vmin;
+    height: 10.7vmin;
+    margin-left: 2.7vmin;
+}
+
+.accountListContent {
+    font-size: 3.7vmin;
+    margin-left: 2.7vmin;
+}
+
+.ListContentTitle {
+    font-weight: bold;
+    color: #666666;
+}
+
+.ListContentPoints {
+    color: #999;
+    margin-top: 2.7vmin;
+}
+
+.ListContentPoints span {
+    color: #f57e2f;
+}
+
+.wallentBtn {
+    width: 32vmin;
+    height: 8.7vmax;
+    font-size: 3.7vmin;
+    display: flex;
+    position: absolute;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    right: 2.7vmin;
+}
+
+.wallentBtn div {
+    height: 3.6vmax;
+    background-color: #f2f2f2;
+    border-radius: 1.3vmin;
+    text-align: center;
+    line-height: 3.6vmax;
+}
+
+.transferOut,
+.transferIn {
+    width: 10.7vmin;
+}
+
+.transferOutAll,
+.transferInAll {
+    width: 18.7vmin;
+}
+
+.transferOutBg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.transferBox {
+    width: 280px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.transferBox-top {
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffb933, #f57e2f);
+}
+
+.transferBox-top p {
+    text-align: center;
+    line-height: 40px;
+}
+
+.accountConent {
+    padding: 0 21px;
+}
+
+.account {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.accountName,
+.masterAccountName {
+    font-size: 14px;
+    color: #999;
+}
+
+.accountMoney,
+.masterAccountMoney {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f57e2f;
+}
+
+/* 下箭头 */
+.down-arrow {
+    display: inline-block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 16px;
+    margin-top: 10px;
+}
+
+.down-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 10px;
+    width: 10px;
+    border-width: 0 2px 2px 0;
+    border-color: #666;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+}
+
+.transferMoney {
+    width: 100%;
+    height: 30px;
+    border-radius: 18px;
+    background-color: #f2f2f2;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #f57e2f;
+}
+
+.submit-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 0px;
+    padding: 0 20px;
+}
+
+.transferCancel {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #cecece, #6d6d6d);
+    color: #fff;
+}
+
+.transferWallet {
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+    color: #fff;
+}
+.selectorMoney{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.moneyBtnBg{
+    position: relative;
+    width: 40px;
+    height: 24px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.selectorMoney input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.moneyBtn{
+    width: 100%;
+    height: 100%;
+    background-color: #feb433;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    line-height: 24px;
+
+}

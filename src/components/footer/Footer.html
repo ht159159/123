@@ -1,0 +1,7 @@
+<div class="footer">
+    <router-link :to="v.alias" v-bind:key="v.alias" v-for="v in footer" >
+        <img :src="v.src" alt="" v-if="$route.path != v.alias"/>
+        <img :src="v.srcHeightLight" alt="" v-if="$route.path == v.alias"/>
+        <h3>{{ v.name }}</h3>
+    </router-link >
+</div>

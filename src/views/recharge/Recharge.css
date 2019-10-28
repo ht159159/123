@@ -1,0 +1,165 @@
+/* 充值 */
+
+.recharge-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 1.5vmax;
+}
+.recharge-box {
+  width: 32vmin;
+  height: 9vmax;
+  background-color: #fff;
+  border-radius: 5px;
+  padding-left: 10.67vmin;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5vmax;
+  margin: 1.5vmax 3.2vmin 0 3.2vmin;
+  justify-content: center;
+  position: relative;
+}
+.recharge-box h2 {
+  font-weight: bold;
+  align-self: center;
+  color: #666666;
+}
+.recharge-box img {
+  width: 10.67vmin;
+  height: 6vmax;
+  position: absolute;
+  left: 2.67vmin;
+  top: 1.5vmax;
+}
+
+/* 银行卡转账 */
+.rechargeBankCard {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.rechargeBankCard > h1 {
+  font-weight: bold;
+  color: #666666;
+  padding: 3vmax 5.33vmin;
+}
+.bankCard-content {
+  width: 91.73vmin;
+  height: 59.82vmax;
+  border-radius: 5px;
+  background-color: #ffffff;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+.bankCard-Field:nth-of-type(1) {
+  margin-top: 4.5vmax;
+}
+.bankCard-Field {
+  width: 80vmin;
+  height: 5.4vmax;
+  margin-bottom: 3vmax;
+  display: flex;
+  align-self: center;
+  border-bottom: 1px solid #c2c2c2;
+  position: relative;
+}
+
+.bankCard-Field input {
+  align-self: center;
+  border: none;
+  outline: none;
+  font-size: 4vmin;
+  color: #666666;
+  appearance: none;
+  padding:0;
+  margin:0;
+  
+}
+.bankCard-Field p {
+  align-self: center;
+  color: #f57e2f;
+}
+
+.bankCard-Field img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.bankCard-card {
+  align-self: center;
+  position: relative;
+}
+.bankCard-card a {
+  color: #666666;
+  font-weight: bold;
+}
+
+.bankCard-card ul {
+  position: absolute;
+  top: 25px;
+  left: -10px;
+  z-index: 5;
+  border-top: none;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #c2c2c2;
+  padding-bottom: 10px;
+}
+.bankCard-card ul li {
+  padding: 4px 0 4px 13px;
+  width: 183px;
+  text-align: left;
+}
+
+.bankCard-submit {
+  color: #fff;
+  border: none;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0.3vmax 2px 0 rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+  align-self: center;
+  margin-top: 40px;
+  outline: none;
+}
+.bankCard-notice {
+  padding: 0 25px;
+  font-size: 3.73vmin;
+  text-align: left;
+  min-height: 20px;
+  color: #feb433;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* line-height: 18px; */
+}
+
+/*webkit*/
+.bankCard-Field input::-webkit-input-placeholder {
+  color: #999999;
+  font-size: 3.73vmin;
+  font-weight: normal;
+}
+/*Firefox */
+.bankCard-Field input::-moz-placeholder {
+  color: #999999;
+  font-size: 3.73vmin;
+  font-weight: normal;
+}
+/*Firefox */
+.bankCard-Field input::-moz-placeholder {
+  color: #999999;
+  font-size: 3.73vmin;
+  font-weight: normal;
+}
+/*IE10*/
+.bankCard-Field input:-ms-input-placeholder {
+  color: #999999;
+  font-size: 3.73vmin;
+  font-weight: normal;
+}

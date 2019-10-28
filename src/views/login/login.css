@@ -1,0 +1,55 @@
+/*login*/
+#txt_vCode{
+  text-transform:uppercase;
+}
+
+.service-wrap {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-info {
+    align-self: center;
+    position: relative;
+  }
+  .service-info > div{
+    border-bottom: 0.4vmin solid #c2c2c2;
+    margin-bottom: 3vmax;
+  }
+  .service-info input {
+    width: 62.14vmin;
+    height: 5.4vmax;
+    padding-left: 12.53vmin;
+    border: none;
+    font-size: 4.27vmin;
+    color: #666666;
+  }
+  .service-info img {
+    position: absolute;
+    top: 0.187rem;
+    left: 0.125rem;
+  }
+  .service-block {
+    align-self: center;
+    margin-bottom: 1.25rem;
+  }
+  .service-block a {
+    margin: 0px 1.5rem 1.25rem 1.5rem;
+    font-size: 3.73vmin;
+    color: #999999;
+  }
+  .login-button {
+    width: 7.5rem;
+    height: 1.875rem;
+    border: none;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+    color: #ffffff;
+    align-self: center;
+    outline: none;
+    box-shadow: 0 0.3vmax 2px 0 rgba(0, 0, 0, 0.2);
+  }
+  .noFillIn {
+    color: #c5a6aa;
+    background-image: linear-gradient(to bottom, #e9c1c5, #b54e5f);
+  }

@@ -1,0 +1,167 @@
+<div class="content resultRecord">
+  <div class="record-titleMain">
+    <div class="record-title">
+      <div class="record-Field">
+        <div class>
+          <select class="record-card" v-model="gameCodeDefault" @change="menuSelected = 0">
+            <!-- <option disabled value="" selected>请选择</option> -->
+            <option
+              v-bind:key="g.gameCode"
+              v-for="(g,idn) in gameArray"
+              :key="idn"
+              :value="g.gameCode"
+              >{{ g.gameName }}</option
+            >
+          </select>
+        </div>
+        <img src="@/assets/img/icon_list_down.png" alt />
+      </div>
+      <div class="record-Field">
+        <div class>
+          <select class="record-card"  v-model="dataShift">
+            <option value="20" v-if="islow">前二十笔记录</option>
+            <option value="0" v-if="!islow" >{{ formatDate(0) }}</option>
+            <option value="-1" v-if="!islow">{{ formatDate(-1) }}</option>
+            <option value="-2" v-if="!islow">{{ formatDate(-2) }}</option>
+          </select>
+        </div>
+        <img src="@/assets/img/icon_list_down.png" v-if="!islow" alt />
+      </div>
+    </div>
+    <div class="record-title2">
+      <div class="reflashing" @click="gameCode">
+        <img src="@/assets/img/icon_refresh.png" alt />
+      </div>
+      <div class="resultMenu">
+        <div>
+          <a
+            :class="{selected:menuSelected == 0}"
+            @click="menuSelected = 0;"
+            >开奖号码</a
+          >
+          <a
+            v-if="gameCodeDefault != 'bjkl8'"
+            v-for="(num,index) in TrendList"
+            :key="index"
+            :class="{selected:menuSelected == num.rowID + 1}"
+            @click="menuSelected = num.rowID + 1,pos = index,getTrendListMobile()"
+            >{{ num.text }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="resultMain" v-if="menuSelected == 0 && GameResult != []">
+    <div class="resultTitle">
+      <div class="resultTitleLeft">
+        <h3>期数&时间</h3>
+      </div>
+      <div class="resultTitleRight">
+        <h3>号码</h3>
+      </div>
+    </div>
+    <div class="resultContent">
+      <div
+        class="resultContentBox"
+        v-for="(r,GRIdx) in GameResult"
+      >
+        <div class="contentBoxLeft">
+          <p class="period">{{ r.issueNo }}</p>
+          <p class="time">{{ r.openTime.substr(11, 5) }}</p>
+        </div>
+        <div class="contentBoxRight">
+          <div 
+          :class="{ball:gameCodeDefault =='hk6' || gameCodeDefault == 'bjkl8',
+                  number:gameCodeDefault.indexOf('pk10')>-1 || gameCodeDefault == 'mlaft',
+                  yellowBall:gameCodeDefault.indexOf('11x5')>-1 || gameCodeDefault.indexOf('ffc')>-1 || gameCodeDefault.indexOf('ssc')>-1
+                  || gameCodeDefault == 'fc3d' || gameCodeDefault == 'pl3' || gameCodeDefault == 'qxc' || gameCodeDefault == 'shssl',
+                  dice:gameCodeDefault.indexOf('k3')>-1}">
+            <div
+              :key="idx"
+              v-for="(n,idx) in gameRsl(r.gameRsl)"
+              :class="resultcss(n)"
+            >
+              <span 
+              v-if="gameCodeDefault.indexOf('k3') == -1">{{ n }}</span>
+              <img  alt=""
+              v-if="gameCodeDefault.indexOf('k3')>-1"
+              :src="require('@/assets/img/dice'+ n +'.png')">  
+            </div>
+            <span v-if="gameCodeDefault.indexOf('k3')>-1">{{ k3DiceTotal(GRIdx) }}</span>
+          </div>
+          <div class="ball" 
+          v-if="gameCodeDefault=='hk6'">
+            <div
+              :key="idx"
+              v-for="(n,idx) in gameRsl(r.gameZodiac)"
+              :class="resultcss(n)"
+            >
+              <span>{{ n }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="resultMain" v-if="menuSelected != 0">
+    <div class="resultTitle">
+      <div class="resultTitleLeft">
+        <h3>期数&时间</h3>
+      </div>
+      <div class=""
+      :class="cssStyle('resultTitle')"
+      >
+        <div v-for="(num,subIndex) in TrendList[pos].value" :key="subIndex">
+          <h3>{{ num }}</h3>
+        </div>
+      </div>
+    </div>
+    <!-- body -->
+    <div class="resultContent" id="trend">
+      <div class="resultContentBox" 
+      v-for="(item,index) in TrendListMobile.body" 
+      :key="">
+        <div class="contentBoxLeft">
+          <p class>{{ item.issueNo }}</p>
+        </div>
+        <div 
+        :class="cssStyle('contentBox')">
+          <div
+          v-for="(subItem) in TrendListFunc(item,pos)" :key="">
+            <h3 :class="{active:subItem == 0}">{{ subItem == 0?item.gameRsl[pos]:subItem }}</h3>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="resultContentBox"
+      v-for="(foot,index) in TrendListMobile.footer">
+        <div class="contentBoxLeft">
+          <p class>{{ foot.issueNo }}</p>
+        </div>
+        <div 
+        :class="cssStyle('contentBox')">
+          <div
+          v-for="posNum in foot.Pos" :key="">
+            <h3 :class="">{{ posNum }}</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="lds-spinner" v-show=" mask == 1">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="mask" v-show=" mask == 1"></div>
+</div>

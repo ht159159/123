@@ -1,0 +1,64 @@
+/* 万千百十个打勾组件 共用*/
+
+.special_option{
+    width: 100%;
+    height: 100%;
+    border-radius: 100rem;
+    display: flex;
+    align-items: center;
+    /* animation: move_dashed 1s linear infinite; */
+    padding: 0 5px;
+    color: #FFC400;
+    font-weight: 100;
+}
+
+.special_option {
+    color: #666666;
+    background: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content:space-around;
+}
+
+.special_option_wrap{
+    padding-bottom:5vmin;
+}
+.special{
+    padding:3.2vmin;
+}
+.special_option_text span{
+    color:red;
+}
+.special_option_item{
+    display: inline-block;
+    width: 4.27vmin;
+    height: 4.27vmin;
+    border: solid 0.27vmin #c4c4c4;
+    border-radius: 1.07vmin;
+    cursor: pointer;
+    position: absolute;
+    left: -2.33vmin;
+    top: -0.8vmin;
+}
+.special_option input:checked + span::after {
+    content: "";
+    width: 2.4vmin;
+    height: 1.33vmin;
+    position: absolute;
+    top: 0.8vmin;
+    left: 0.53vmin;
+    border: 0.53vmin solid #feb433;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    transform: rotate(-45deg);
+}
+.special_option input{
+    display:none;
+}
+
+label{
+    position:relative;
+    padding-left:2.67vmin;
+}
+

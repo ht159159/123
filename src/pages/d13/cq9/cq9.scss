@@ -1,0 +1,179 @@
+.contentWrap {
+    padding-top: 7.2vmax;
+    .searchBK {
+        width: 92.27vmin;
+        height: 3vmax;
+        border-radius: 2.7vmax;
+        background-color: #f2f2f2;
+        margin: 10px auto;
+        img {
+            width: 3.2vmin;
+            height: 1.8vmax;
+            line-height: 3vmax;
+            margin: 0 2.67vmin;
+        }
+        input {
+            border: none;
+            background: #f2f2f2;
+            width: 80vmin;
+        }
+    }
+    .GameSelectWrap {
+      padding-top: 1.5vmax;
+      font-size: 2.4vmax;
+      color: #333333;
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: #f2f2f2;
+    }
+    .GameSelect {
+      width: 17.07vmin;
+      text-align: center;
+      .gameNav_button {
+        height: 0.3vh;
+        width: 17.07vw;
+        border-radius: 0.15vmax;
+        background-image: linear-gradient(to right, #ffb933, #f57e2f);
+      }
+    }
+    .allGame {
+      min-height: 72vmax;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f2f2f2;
+      color: #333333;
+      padding: 2.7vmax 0 7.8vmax 1.07vmin;
+    }
+    .GameTypeContent {
+      display: flex;
+      justify-content: center;
+      margin: 0 2.93vmin 1.65vh;
+    }
+  
+    .GameTypeContent .GameTypeWrap {
+      width: 18.7vw;
+      height: 12.74vh;
+      font-size: 3.2vmin;
+      text-align: center;
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .GameTypeContent .GameTypeWrap:visited {
+      color: #333333;
+    }
+  
+    .GameTypeContent .GameTypeImgWrap {
+      width: 18.7vw;
+      height: 10.5vh;
+      border-radius: 2.67vmin;
+      box-shadow: 0 0.8vmin 1.6vmin 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.75vh;
+      font-size: 3.2vmin;
+    }
+    .GameTypeContent .GameTypeImgWrap img {
+      width: 18.7vw;
+      height: 10.5vh;
+      border-radius: 2.6vw;
+    }
+    .hotGame {
+      min-height: 72vmax;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      background-color: #f2f2f2;
+      color: #333333;
+      padding: 2.7vmax 0 7.8vmax 1.07vmin;
+      .hotGameTypeContent {
+        display: flex;
+        justify-content: center;
+        margin: 0 2.93vmin 1.65vh;
+      }
+      .hotGameTypeWrap {
+        width: 18.7vw;
+        height: 12.74vh;
+        font-size: 3.2vmin;
+        text-align: center;
+        p {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+      .hotGameTypeWrap::visited {
+        color: #333333;
+      }
+      .hotGameTypeContent .hotGameTypeImgWrap {
+        width: 18.7vw;
+        height: 10.5vh;
+        border-radius: 2.67vmin;
+        box-shadow: 0 0.8vmin 1.6vmin 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.75vh;
+        font-size: 3.2vmin;
+      }
+      .hotGameTypeContent .hotGameTypeImgWrap img {
+        width: 18.7vw;
+        height: 10.5vh;
+        border-radius: 2.6vw;
+      }
+    }
+    .topGame {
+      min-height: 72vmax;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      background-color: #f2f2f2;
+      color: #333333;
+      padding: 2.7vmax 0 7.8vmax 1.07vmin;
+      .topGameTypeContent {
+        display: flex;
+        justify-content: center;
+        margin: 0 2.93vmin 1.65vh;
+      }
+      .topGameTypeWrap {
+        width: 18.7vw;
+        height: 12.74vh;
+        font-size: 3.2vmin;
+        text-align: center;
+        p {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+      .topGameTypeWrap::visited {
+        color: #333333;
+      }
+      .topGameTypeContent .topGameTypeImgWrap {
+        width: 18.7vw;
+        height: 10.5vh;
+        border-radius: 2.67vmin;
+        box-shadow: 0 0.8vmin 1.6vmin 0 rgba(0, 0, 0, 0.16);
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.75vh;
+        font-size: 3.2vmin;
+      }
+      .topGameTypeContent .topGameTypeImgWrap img {
+        width: 18.7vw;
+        height: 10.5vh;
+        border-radius: 2.6vw;
+      }
+    }
+    
+  }
+  

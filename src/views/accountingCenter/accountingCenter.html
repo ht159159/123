@@ -1,0 +1,16 @@
+<div class="accounting content">
+    <div class="accountingBg">
+        <router-link
+            class="accounting-options-item"
+            v-for="item in account"
+            :to="item.href"
+        >
+            <div :class="item.name">
+                <span>
+                        {{ item.optionFont }}
+                </span>
+            </div>
+            
+        </router-link>
+    </div>
+</div>

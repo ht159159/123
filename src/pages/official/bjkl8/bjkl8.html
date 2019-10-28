@@ -1,0 +1,98 @@
+<div class="wrapper">
+    <div class="panel-wrap">
+        <HistoricalboardComponent :_time="time" />
+        <!-- v-on:clickOff 监听玩法选择有无变动 -->
+        <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu" />
+    </div>
+    <div class="playContent" :class="{'dontTouch':donotTouch}">
+        <!-- 游戏内容-混合 -->
+        <div class="mix" v-if="offTitle == 0 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(m,idx) in Mix" @click.down="m.checked = !m.checked" @click="checkNum(Mix)"
+                :class="{'playActive': m.checked}">
+                <div class="gameBoxWrap">
+                    <span :class="mixbackground(idx)">{{ m.play}}</span>
+                    <span>{{ m.odds }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 色波 -->
+        <div class="SB" v-if="offTitle == 1 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(SBs,SBidx) in SB" @click.down="SB[SBidx].checked = !SB[SBidx].checked"
+                @click="checkNum(SB)" :class="{'playActive': SB[SBidx].checked}">
+                <div class="gameBoxWrap">
+                    <span :class="bobackground(SBs.id)">{{ SBs.play}}</span>
+                    <span>{{ SBs.odds }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bz" v-if="offTitle == 2 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(BZs,idx) in BZ" @click.down="BZs.checked = !BZs.checked" @click="checkNum(BZ)"
+                :class="{'playActive': BZs.checked}">
+                <div class="gameBoxWrap">
+                    <span class="noneback">{{ BZs.play}}</span>
+                    <span>{{ BZs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 特码 -->
+        <div class="TM" v-if="offTitle == 3 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(NUM,numidx) in TM" @click.down="NUM.checked = !NUM.checked"
+                @click="checkNum(TM)" :class="{'playActive': NUM.checked}">
+                <div class="gameBoxWrap">
+                    <span :class="getcolor(NUM.play)">{{NUM.play}}</span>
+                    <span>{{ NUM.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 特码TMEND -->
+
+        <!-- 特码包三-->
+        <div class="tmb3" v-if="offTitle == 3 && OffSubTitle == 1 ">
+            <div class="contentWrap">
+                <div class="gameTitle">
+                    <span></span>
+                    <span>赔率：{{ TMB3[0].odds}}</span>
+                </div>
+                
+                <div class="gameBox_6_wrap">
+                        <div class="gameBox_6" v-for="(NUM,idx) in TMB3"
+                            @click.down="NUM.checked = !NUM.checked" @click="checkNum(TMB3,idx)" 
+                            :class="{'playActive': NUM.checked}">
+                            <div class="gameBoxWrap">
+                                <span :class="getcolor(NUM.play)">{{NUM.play}}</span>
+                            </div>
+                        </div>
+                    </div>                
+
+            </div>
+
+        </div>
+
+    </div>
+    <BettingFieldComponent 
+    ref="bf" 
+    :barMax="barMax" 
+    :forbet="forbet" 
+    :rate.sync="rebatRate" 
+    :quantity="quantity"
+    :time="time" 
+    :issueTrace="issueTrace" />
+
+    <div class="lds-spinner" v-show="mask">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="mask" v-show="mask"></div>
+</div>

@@ -1,0 +1,71 @@
+<div>
+    <div class="row"  :class="{'fix' : openHR}" @click="openHR = !openHR">
+        <div class="content1">
+            <div class="date">{{game.resultNo}}</div>
+            <div :class="{                        
+                        ballnumber:$route.name == 'hk6'||$route.name=='bjkl8',
+                        dice:$route.name == 'k3',
+                        yellowBall:$route.name == 'ssc' || $route.name=='qxc' ||$route.name=='low'||$route.name == '11x5',
+                        pknum:$route.name=='pk10'
+                    }">
+                <ul>
+                    <li v-if="$route.name !='k3'" 
+                    :class="resultcss(item)" 
+                    v-for="item in game.result">
+                        <span>{{item}}</span>
+                    </li>
+                    <li v-if="$route.name =='k3'" 
+                    v-for="item in game.result">
+                        <img  alt="" v-show="lotterying == false"
+                        :src="K3img(item)"> 
+                        <span v-show="lotterying == true">{{item}}</span>
+                    </li>
+                </ul>
+                <ul v-if="$route.name == 'hk6'" v-show="lotterying == false">
+                    <li :class="resultcss(item)" v-for="item in game.result2"><span>{{item}}</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content2">
+            <div class="date">{{game.openissueNo}}</div>
+            <div class="timeContentWrap">
+                <div>
+                    <img src="../../../assets/img/icon-time2.png" alt="">
+                    <span>封盘</span>
+                    <span class="timeContent">{{_time.value}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 点击展开 -->
+    <div class="HR" v-show="openHR">
+        <div class="mask" @click="openHR=false"></div>
+        <div class="HRWrap">
+            <div class="content1" v-for="(item,index) in game.resulthistory">
+                <div class="date">{{item.issueNo}}</div>
+                <div :class="{ballnumber:$route.name == 'hk6'||$route.name=='bjkl8',
+                            dice:$route.name == 'k3',
+                            yellowBall:$route.name == 'ssc'|| $route.name=='qxc'||$route.name=='low'||$route.name == '11x5',
+                            pknum:$route.name=='pk10'}">
+                    <ul>
+                        <li v-if="$route.name != 'k3'"
+                        :class="resultcss(Rsl)" v-for="Rsl in game.resulthistory[index].gameRsl">
+                            <span>{{Rsl}}</span>
+                        </li>
+                        <li v-if="$route.name == 'k3'" 
+                            v-for="item in game.resulthistory[index].gameRsl">
+                            <img  alt=""
+                            :src="require('@/assets/img/dice'+ item +'.png')"> 
+                        </li>
+                    </ul>
+                    <ul>
+                        <li :class="resultcss(Zodiac)" v-for="Zodiac in game.resulthistory[index].gameZodiac">
+                            <span>{{Zodiac}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

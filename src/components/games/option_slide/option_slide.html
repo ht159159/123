@@ -1,0 +1,13 @@
+<div class="option_slide_wrap">
+     <!-- 全大小单双清 -->
+     <div class="option_slide">
+            <div class="option_wrap" >
+                <div class="optionBox" 
+                v-for="(options,optionsidx) in option_slide"
+                @click="optionSlideIdx = optionsidx,changeBgc(optionsidx,dataGroups)"
+                :class="{'optionActive': optionSlideIdx  == optionsidx}">
+                <h2>{{ options }}</h2>
+            </div>
+            </div>
+        </div>
+</div>

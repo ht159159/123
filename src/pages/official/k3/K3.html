@@ -1,0 +1,247 @@
+<div class="wrapper K3">
+    <div class="panel-wrap">
+        <HistoricalboardComponent :_time="time"/>
+        <!-- v-on:clickOff 监听玩法选择有无变动 -->
+        <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu"/>
+    </div>
+    <div :class="{'dontTouch':donotTouch}" class="center">
+        <!-- 和值-和值 -->
+        <div class="SUM3 playType" v-if="offTitle == 0 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(item,index) in SUM3" @click.down="SUM3[index].checked = !SUM3[index].checked"
+                @click="checkNum(SUM3)" :class="{'playActive': item.checked}">
+                <div class="gameBoxWrap">
+                    <span>{{item.play}}</span>
+                    <span>{{ item.odds }}</span>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 和值-大小单双 -->
+        <div class="SUMB playType" v-if="offTitle == 0 && OffSubTitle == 1 ">
+            <div class="gameBox" v-for="(item,index) in SUMB" @click.down="SUMB[index].checked = !SUMB[index].checked"
+                @click="checkNum(SUMB)" :class="{'playActive': item.checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ item.play}}</span>
+                    <span>{{ item.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 三同号-三同号通选(全骰) -->
+        <div class="contentWrap ThreeAtTripleAll" v-if="offTitle == 1 && OffSubTitle == 0">
+            <div class="gameTitle">
+                <span>号码</span>
+                <span>赔率：{{ ThreeAtTripleAll[0].odds}}</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(item,LMaidx) in ThreeAtTripleAll"
+                @click.down="item.checked = !item.checked" @click="checkNum(ThreeAtTripleAll)" 
+                :class="{'playActive': item.checked}">
+                    <div class="gameBoxWrap">
+                        <span >{{item.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 三同号-三同号单选(围骰) -->
+        <div class="contentWrap ThreeAtTripleS" v-if="offTitle == 1 && OffSubTitle == 1">
+            <div class="gameTitle">
+                <span>号码</span>
+                <span>赔率：{{ ThreeAtTripleS[0].odds}}</span>
+            </div>
+            <!-- 全大小单双清組件 -->
+            <Option_slideComponent :dataGroups="ThreeAtTripleS" :_option_slide_idx.sync="option_slide_idx"/>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in ThreeAtTripleS"
+                @click.down="LMas.checked = !LMas.checked" @click="checkNum(ThreeAtTripleS)" 
+                :class="{'playActive': LMas.checked}">
+                    <div class="gameBoxWrap">
+                        <span >{{LMas.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三不同号-三不同(标准) -->
+        <div class="contentWrap ThreeAtDiffG " v-if="offTitle == 2 && OffSubTitle == 0">
+            <div class="gameTitle">
+                <span>号码</span>
+                <span>赔率：{{ ThreeAtDiffG[0].odds}}</span>
+            </div>
+            <!-- 全大小单双清組件 -->
+            <Option_slideComponent :dataGroups="ThreeAtDiffG" :_option_slide_idx.sync="option_slide_idx"/>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in ThreeAtDiffG"
+                @click.down="LMas.checked = !LMas.checked" @click="checkNum(ThreeAtDiffG)" 
+                :class="{'playActive': LMas.checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 三不同号-三不同(胆拖)-->
+        <div class="contentWrap ThreeAtDiffAB " v-if="offTitle == 2 && OffSubTitle == 1">
+            <div class="gameTitle">
+                <span>胆码</span>
+                <span>赔率：{{ ThreeAtDiffA[0].odds}}</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in ThreeAtDiffA"
+                @click.down="LMas.checked = !LMas.checked" @click="checkNum(ThreeAtDiffA,LMaidx)" 
+                    :class="{'playActive': LMas.checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gameTitle">
+                <span>拖码</span>
+                <span></span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in ThreeAtDiffB"
+                @click.down="LMas.checked = !LMas.checked" @click="checkNum(ThreeAtDiffB,LMaidx)" 
+                    :class="{'playActive': LMas.checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三连号-号码 -->
+        <div class="contentWrap ThreeAtStraightAll" v-if="offTitle == 3 && OffSubTitle == 0">
+            <div class="gameTitle">
+                <span></span>
+                <span>赔率：{{ ThreeAtStraightAll[0].odds}}</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(item,LMaidx) in ThreeAtStraightAll"
+                @click.down="item.checked = !item.checked" @click="checkNum(ThreeAtStraightAll)" 
+                :class="{'playActive': item.checked}">
+                    <div class="gameBoxWrap">
+                        <span >{{item.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- 二同号-复选(短牌)-->
+         <div class="contentWrap TwoAtDoubleM" v-if="offTitle == 4 && OffSubTitle == 0">
+            <div class="gameTitle">
+                <span>号码</span>
+                <span>赔率：{{ TwoAtDoubleM[0].odds}}</span>
+            </div>
+            <!-- 全大小单双清組件 -->
+            <Option_slideComponent :dataGroups="TwoAtDoubleM" :_option_slide_idx.sync="option_slide_idx"/>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDoubleM"
+                @click.down="TwoAtDoubleM[LMaidx].checked = !TwoAtDoubleM[LMaidx].checked" @click="checkNum(TwoAtDoubleM)" 
+                :class="{'playActive': TwoAtDoubleM[LMaidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span >{{LMas.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 两同号-两同号(单选)-->
+        <div class="contentWrap TwoAtDoubleS" v-if="offTitle == 4 && OffSubTitle == 1">
+            <div class="gameTitle">
+                <span>同号</span>
+                <span>赔率：{{ TwoAtDoubleS0[0].odds}}</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDoubleS0"
+                @click.down="TwoAtDoubleS0[LMaidx].checked = !TwoAtDoubleS0[LMaidx].checked" @click="checkNum(TwoAtDoubleS0,LMaidx)" 
+                :class="{'playActive': TwoAtDoubleS0[LMaidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gameTitle">
+                <span>不同号</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDoubleS1"
+                @click.down="TwoAtDoubleS1[LMaidx].checked = !TwoAtDoubleS1[LMaidx].checked" @click="checkNum(TwoAtDoubleS1,LMaidx)" 
+                :class="{'playActive': TwoAtDoubleS1[LMaidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- 两不同号-二不同-标准(长牌)-->
+        <div class="contentWrap TwoAtDiffG " v-if="offTitle == 5 && OffSubTitle == 0">
+            <div class="gameTitle">
+                <span>号码</span>
+                <span>赔率：{{ TwoAtDiffG[0].odds}}</span>
+            </div>
+            <!-- 全大小单双清組件 -->
+            <Option_slideComponent :dataGroups="TwoAtDiffG" :_option_slide_idx.sync="option_slide_idx"/>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDiffG"
+                @click.down="TwoAtDiffG[LMaidx].checked = !TwoAtDiffG[LMaidx].checked" @click="checkNum(TwoAtDiffG)" 
+                :class="{'playActive': TwoAtDiffG[LMaidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 两不同号-二不同-胆拖-->
+        <div class="contentWrap TwoAtDiffAB " v-if="offTitle == 5 && OffSubTitle == 1">
+            <div class="gameTitle">
+                <span>胆码</span>
+                <span>赔率：{{ TwoAtDiffA[0].odds}}</span>
+            </div>
+            <div class="gameContent">
+                <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDiffA"
+                    @click.down="LMas.checked = !LMas.checked" @click="checkNum(TwoAtDiffA,LMaidx)" 
+                    :class="{'playActive': TwoAtDiffA[LMaidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span>{{LMas.play}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gameTitle">
+                    <span>拖码</span>
+                    <span></span>
+                </div>
+                <div class="gameContent">
+                    <div class="gameBox_6" v-for="(LMas,LMaidx) in TwoAtDiffB"
+                        @click.down="LMas.checked = !LMas.checked" @click="checkNum(TwoAtDiffB,LMaidx)" 
+                        :class="{'playActive': TwoAtDiffB[LMaidx].checked}">
+                        <div class="gameBoxWrap">
+                            <span>{{LMas.play}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div> 
+       <!-- gamePlay end -->
+    <BettingFieldComponent ref="bf"
+    :barMax="barMax" 
+    :forbet="forbet" 
+    :rate.sync="rebatRate"
+    :quantity="quantity"
+    :time="time"
+    :issueTrace="issueTrace"
+     />
+     <div class="lds-spinner" v-show="mask">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="mask" v-show="mask"></div>
+</div>

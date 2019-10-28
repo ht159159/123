@@ -1,0 +1,49 @@
+<div>
+    <div class="row2">
+        <!-- 玩法选择 -->
+        <div class="gameTitle">
+            <div class="gameTitleLeft" @click="IsShowFB()" v-for="(playTitles,playTitlesIdx) in officialPlay"
+                v-if="offTitle == playTitlesIdx">
+                <div>玩法选择</div>
+                <div>{{ playTitles.name }}</div>
+                <div class="titleChecked" v-for="(subTitles,offPlayListIndex) in playTitles.sub" v-if="offTitle == playTitlesIdx && OffSubTitle == offPlayListIndex  ">
+                    {{ subTitles.subName }}</div>
+            </div>
+            <div class="slideDown" @click="IsShowFB()"></div>
+        </div>
+        <div class="gamePlay">
+            <div class="gamwDescription"></div>
+            <span>玩法</span>
+        </div>
+    </div>
+     <!-- 弹窗 -->
+     <div class="PS" v-show="isShowFB">
+        <div class="mask"></div>
+        <div class="palySelect">
+            <a class="btnClose" href="#!" @click="IsShowFB()"></a>
+            <div class="psTitle">
+                <span>玩法选择</span>
+            </div>
+            <div class="psSelectBtn">
+                <div @click="IsPlaySelect('official')">
+                    <span>官方玩法</span>
+                    <div class="line" v-show="official"></div>
+                </div>
+                <div @click="IsPlaySelect('ylc')">
+                    <span>娱乐城玩法</span>
+                    <div class="line" v-show="ylc"></div>
+                </div>
+            </div>
+            <div class="block" v-for="(item,offTitleIndex) in officialPlay">
+                <div class="block-left">{{ item.name }}</div>
+                <div class="block-right">
+                    <div class="playUnchecked" v-for="(subItem,offPlayListIndex) in item.sub" @click="clickOffical(offTitleIndex,offPlayListIndex)"
+                        :class="{'playChecked':offTitle == offTitleIndex && OffSubTitle == offPlayListIndex}">
+                        {{ subItem.subName }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

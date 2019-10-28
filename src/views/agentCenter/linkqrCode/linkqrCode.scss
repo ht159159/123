@@ -1,0 +1,13 @@
+.linkqrCodeWrap {
+    min-height: 92.3vmax;
+    background: #f2f2f2;
+    .qrWrap {
+        padding-top: 30vmax;
+        position: relative;
+    }
+    .qrcode_box {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-1{fill:#d1d1d1}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:url(#linear-gradient)}
+        </style>
+        <clipPath id="clip-path">
+            <path id="Rectangle_1468" d="M0 0h40v40H0z" class="cls-1" data-name="Rectangle 1468" transform="translate(121 213)"/>
+        </clipPath>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#98dea4"/>
+            <stop offset="1" stop-color="#62a76e"/>
+        </linearGradient>
+    </defs>
+    <g id="icon_index_withdraw" transform="translate(-121 -213)">
+        <g id="icon_index_withdraw-2" class="cls-2" data-name="icon_index_withdraw">
+            <g id="團隊投注" transform="translate(121 213)">
+                <path id="Union_15" d="M31.611 38.561l-5.63-5.631a4.918 4.918 0 0 1-.9-5.722l-1.676-1.676a14.389 14.389 0 1 1 2.124-2.124l1.676 1.676a4.917 4.917 0 0 1 5.723.9l5.63 5.63a4.914 4.914 0 0 1-6.949 6.95zM28.1 30.807l5.631 5.63a1.91 1.91 0 0 0 2.7-2.7L30.807 28.1a1.846 1.846 0 0 0-1.32-.587 1.935 1.935 0 0 0-1.387 3.294zM3 14.37A11.366 11.366 0 1 0 14.37 3 11.379 11.379 0 0 0 3 14.37zm7.179 5.924a1.323 1.323 0 0 1-1.319-1.322v-1.417a5.563 5.563 0 0 1 2.309-4.51 4.154 4.154 0 1 1 6.525 0A5.557 5.557 0 0 1 20 17.556v1.416a1.323 1.323 0 0 1-1.323 1.323zm1.322-2.74v.1h5.852v-.094a2.926 2.926 0 0 0-5.852 0zm1.416-7.078a1.51 1.51 0 1 0 1.51-1.51 1.512 1.512 0 0 0-1.507 1.511z" class="cls-3" data-name="Union 15"/>
+            </g>
+        </g>
+    </g>
+</svg>

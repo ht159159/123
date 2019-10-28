@@ -1,0 +1,500 @@
+@charset "UTF-8";
+.managementWrap {
+  padding-top: 7.2vmax;
+  min-height: 85.3vmax;
+  background: #f2f2f2;
+  color: #666666;
+  position: relative;
+}
+
+.managementWrap .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.managementWrap .teamAgent {
+  margin-bottom: 7.8vmax;
+}
+
+.managementWrap .agentWrap {
+  width: 91.73vmin;
+  background: #ffffff;
+  border-radius: 1.33vmin;
+  margin: 2.4vmax auto 0;
+  padding: 1.5vmax 0 1.5vmax 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.managementWrap .nowAgentWrapLeft {
+  height: 2.85vmax;
+  line-height: 2.85vmax;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 3.73vmin;
+}
+
+.managementWrap .nowAgentWrapLeft > p {
+  margin-right: 2.67vmin;
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .nowAgentWrapLeft .account {
+  color: #feb433;
+  font-weight: bold;
+  margin-right: 2.67vmin;
+}
+
+.managementWrap .nowAgentWrapLeft .down-arrow {
+  display: inline-block;
+  position: relative;
+  width: 4.3vmin;
+  height: 4.3vmin;
+}
+
+.managementWrap .nowAgentWrapLeft .down-arrow::after {
+  display: inline-block;
+  content: " ";
+  height: 2.7vmin;
+  width: 2.7vmin;
+  border-width: 0 0.5vmin 0.5vmin 0;
+  border-color: #666666;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  margin-top: -1.5vmax;
+}
+
+.managementWrap .nowAgentWrapRight {
+  margin-right: 2.67vmin;
+}
+
+.managementWrap .nowAgentWrapRight .backUP {
+  width: 18.67vmin;
+  height: 3vmax;
+  line-height: 3vmax;
+  color: #ffffff;
+  font-size: 3.2vmin;
+  border-radius: 2.67vmin;
+  -webkit-box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1929c), to(#e35e74));
+  background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+  text-align: center;
+}
+
+.managementWrap .agentNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 91.73vmin;
+  margin: 1.5vmax auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.managementWrap .agentNav .agentNavWrap {
+  width: 25%;
+  text-align: center;
+}
+
+.managementWrap .agentNav .agentNav_bottom {
+  width: 100%;
+  height: 0.3vmax;
+  margin-top: 1.05vmax;
+  background-color: #f57e2f;
+}
+
+.managementWrap .downAgent .downAgentWrapLeft {
+  font-size: 3.73vmin;
+  font-weight: bold;
+  color: #666666;
+  line-height: 3vmax;
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .downAgent .downAgentWrapRight {
+  font-size: 3.2vmin;
+  color: #ffffff;
+  width: 18.67vmin;
+  height: 3vmax;
+  line-height: 3vmax;
+  text-align: center;
+  border-radius: 2.67vmin;
+  -webkit-box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#98dea4), to(#62a76e));
+  background-image: linear-gradient(to bottom, #98dea4, #62a76e);
+  margin-right: 2.67vmin;
+}
+
+.managementWrap .agentDataWrap {
+  width: 91.73vmin;
+  background: #ffffff;
+  border-radius: 1.33vmin;
+  margin: 1.5vmax auto 0;
+  padding: 1.6vmax 0 1.6vmax 0;
+}
+
+.managementWrap .statusNav,
+.managementWrap .statusDataWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 3.73vmin;
+  font-weight: bold;
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .statusNav .account,
+.managementWrap .statusDataWrap .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 23.2vmin;
+}
+
+.managementWrap .statusNav .availableCredit,
+.managementWrap .statusDataWrap .availableCredit {
+  width: 24.53vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.managementWrap .statusNav .agentStatus,
+.managementWrap .statusDataWrap .agentStatus {
+  width: 17.33vmin;
+  text-align: center;
+}
+
+.managementWrap .statusNav .lastTime,
+.managementWrap .statusDataWrap .lastTime {
+  width: 28.7vmin;
+  text-align: right;
+}
+
+.managementWrap .statusDataWrap {
+  height: 5.4vmax;
+  line-height: 5.4vmax;
+}
+
+.managementWrap .statusDataWrap .account p,
+.managementWrap .statusDataWrap .availableCredit p {
+  color: #feb433;
+  height: 4.1vmax;
+  border-bottom: 0.15vmax #feb433 solid;
+}
+
+.managementWrap .grayLine {
+  width: 100%;
+  height: 0.15vmax;
+  background-color: #f2f2f2;
+}
+
+.managementWrap .baseDataWrap {
+  width: 80vmin;
+  background: #ffffff;
+  border-radius: 1.33vmin;
+  margin: 2.4vmax auto 0;
+  padding: 1.5vmax 5.6vmin 1.5vmax 6.13vmin;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.managementWrap .baseData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 4.27vmin;
+  color: #666666;
+  margin-top: 4.2vmax;
+}
+
+.managementWrap .baseData .dataTitle {
+  width: 30.6vmin;
+  height: 3.15vmax;
+}
+
+.managementWrap .bonusGroup {
+  width: 91.73vmin;
+  background: #ffffff;
+  border-radius: 1.33vmin;
+  margin: 2.4vmax auto 0;
+  padding-bottom: 7.8vmax;
+}
+
+.managementWrap .bonusGroup .bonusWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.35vmax 2.67vmin 1.2vmax;
+}
+
+.managementWrap .bonusGroup .bonusWrap .platform {
+  width: 30.4vmin;
+}
+
+.managementWrap .bonusGroup .bonusWrap .currently {
+  width: 30.67vmin;
+  text-align: center;
+}
+
+.managementWrap .bonusGroup .bonusWrap .limit {
+  width: 30.4vmin;
+  text-align: right;
+}
+
+.managementWrap .antiWater {
+  width: 91.73vmin;
+  background: #ffffff;
+  border-radius: 1.33vmin;
+  margin: 2.4vmax auto 0;
+}
+
+.managementWrap .antiWater .bonusWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.35vmax 2.67vmin 1.2vmax;
+}
+
+.managementWrap .adjustmentButtonWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.managementWrap .adjustmentButtonWrap .adjustmentButton {
+  border: none;
+  width: 32vmin;
+  height: 4.5vmax;
+  border-radius: 15px;
+  color: #ffffff;
+  margin: 6vmax auto;
+  -webkit-box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1929c), to(#e35e74));
+  background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+}
+
+.managementWrap .bonusSetWrap .bonusTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2.67vmin;
+}
+
+.managementWrap .bonusSetWrap .setup-select {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.managementWrap .bonusSetWrap .iphone-checkbox {
+  position: relative;
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch {
+  position: absolute;
+  margin: 8px 0 0 16px;
+  display: none;
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch + label {
+  position: relative;
+  padding: 5px 0 0 50px;
+  line-height: 2em;
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch + label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 3px;
+  width: 60px;
+  /* x*5 */
+  height: 24px;
+  /* x*3 */
+  border-radius: 16px;
+  /* x*2 */
+  background: #fff;
+  /*border: 1px solid #d9d9d9;*/
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cecece), to(#6d6d6d));
+  background-image: linear-gradient(to bottom, #cecece, #6d6d6d);
+  -webkit-box-shadow: inset 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch + label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 2px;
+  top: 5px;
+  width: 18px;
+  /* x*3 */
+  height: 18px;
+  /* x*3 */
+  border-radius: 16px;
+  /* x*2 */
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch + label:hover:after {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch:checked + label:after {
+  margin-left: 36px;
+}
+
+.managementWrap .bonusSetWrap input[type="checkbox"].advanced_switch:checked + label:before {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#98dea4), to(#62a76e));
+  background-image: linear-gradient(to bottom, #98dea4, #62a76e);
+}
+
+.managementWrap .bonusSetWrap .gameAdjustmentTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.95vmax 2.67vmin 1.5vmax;
+  font-size: 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.05vmax;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap input[type="range"] {
+  -webkit-appearance: none;
+  width: 45.33vmin;
+  height: 1.2vmax;
+  border-radius: 10px;
+  /*这个属性设置使填充进度条时的图形为圆角*/
+  margin-left: 2.67vmin;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 5.87vmin;
+  height: 3.3vmax;
+  border-radius: 50%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#c9c9c9));
+  background-image: linear-gradient(to bottom, #fcfcfc, #c9c9c9);
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .zipper {
+  background-image: -webkit-linear-gradient(left, #80c269 0%, #80c269 0%, #c2c2c2 0%, #c2c2c2 100%);
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .lessWrap,
+.managementWrap .bonusSetWrap .progressBarWrap .addWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .less,
+.managementWrap .bonusSetWrap .progressBarWrap .add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 5.33vmin;
+  height: 3vmax;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 5.33vmin;
+  color: #ffffff;
+  background-color: #556fb5;
+  border-radius: 50%;
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .lessNum,
+.managementWrap .bonusSetWrap .progressBarWrap .addNum {
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .progressBar {
+  position: relative;
+  top: 0.5vmax;
+  width: 45.33vmin;
+  height: 1.2vmax;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #80c269 0%, #80c269 0%, #c2c2c2 0%, #c2c2c2 100%);
+  margin-left: 2.67vmin;
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .smallCircle {
+  width: 5.87vmin;
+  height: 3.3vmax;
+  border-radius: 50%;
+  position: absolute;
+  top: -1vmax;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#c9c9c9));
+  background-image: linear-gradient(to bottom, #fcfcfc, #c9c9c9);
+}
+
+.managementWrap .bonusSetWrap .progressBarWrap .smallCircle:before {
+  background-color: #80c269;
+}
+/*# sourceMappingURL=teamManagement.css.map */

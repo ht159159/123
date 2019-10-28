@@ -1,0 +1,58 @@
+<div class="wrapper">
+        <div class="panel-wrap">
+            <HistoricalboardComponent :_time="time"/>
+            <!-- v-on:clickOff 监听玩法选择有无变动 -->
+            <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu"/>
+        </div>
+        <div :class="{'dontTouch':donotTouch}">
+            <!-- all of game paly -->
+            <div class="gamePlayName" 
+            v-for="(item,itemIndex) in gameMenu" >
+                <div v-for="(subItem,subItemIndex) in item.sub"
+                :class ="[subItem.shortName,{gameBackground:offTitle == itemIndex && OffSubTitle == subItemIndex}]">
+                    <div class="contentW" 
+                    
+                    v-if="offTitle == itemIndex && OffSubTitle == subItemIndex">
+                        <div class="game" v-for="(sort,sortIndex) in subItem.classification">                                                     
+                        
+                            <div :class="subItem.contentStyle == null ?'gameContent':'gameContent2'">
+                                <div :class="[{'playActive': LMas.checked},subItem.contentStyle == null?'gameBox_6':'gameBox_10']"
+                                v-for="(LMas,LMaidx) in sort.classificationArr"
+                                @click.down="LMas.checked = !LMas.checked" @click="checkNum(sort.classificationArr)" >
+                                    <div class="gameBoxWrap">
+                                        <span class="idName"
+                                        :id="LMas.id">{{LMas.play}}</span>
+                                        <span>{{ LMas.odds }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>  
+           <!-- gamePlay end -->
+        <BettingFieldComponent ref="bf"
+        :barMax="barMax" 
+        :forbet="forbet" 
+        :rate.sync="rebatRate"
+        :quantity="quantity"
+        :time="time"
+        :issueTrace="issueTrace"
+         />
+         <div class="lds-spinner" v-show="mask">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="mask" v-show="mask"></div>
+    </div>

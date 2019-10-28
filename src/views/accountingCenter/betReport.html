@@ -1,0 +1,205 @@
+<div class="betReport content">
+    <div class="recordSearch">
+        <div class="record-title">
+            <label for="startTime">时间</label>
+            <input
+                type="date"
+                id="startTime"
+                required="required"
+                v-model="startTime"
+            >
+            <label for="endTime">至</label>
+            <input
+                type="date"
+                id="endTime"
+                required="required"
+                v-model="endTime"
+            >
+            <!-- <button class="serchRecord" @click="submit">查询</button> -->
+        </div>
+        <div class="platformBox">
+            <label for="platformSelector">平台
+            </label>
+            <!-- <div class="platform">全部</div> -->
+
+            <select
+                name=""
+                id="platformSelector"
+                v-model="platform"
+            >
+                <option value="">全部</option>
+                <option
+                    v-for="(option,opidx) in getDataList"
+                    :value="option.spID"
+                    v-show="option.parent == 0 && option.spID != 0"
+                >{{ option.spNameCN }}</option>
+            </select>
+            <div class="down-arrowBox">
+                <div class="down-arrow"></div>
+            </div>
+
+        </div>
+        <div class="timeSelector">
+            <div
+                v-for="item in timeSelector"
+                @click="quickdate(item.dayValue)"
+            >
+                {{item.time}}
+            </div>
+            <button
+                class="serchRecord"
+                @click="level = 0,platformSeach()"
+            >查询</button>
+        </div>
+    </div>
+    <div class="betReportContent">
+        <div class="contentTitle">
+            <nav>
+                <span>全部</span>
+                <span v-if="level > 0"> > {{memberBetLogInfo.platformName}}</span>
+                <span v-if="level > 1"> > {{memberBetLogInfo.gameName}}</span>
+            </nav>
+
+            <button
+                class="backTop"
+                @click="level -= 1,platformSeach()"
+            >回上級</button>
+        </div>
+        <div class="contentList">
+            <div class="listTitle">
+                <div v-if="level == 0">平台</div>
+                <div v-if="level == 1">游戏</div>
+                <div v-if="level == 2">下注时间</div>
+                <div v-if="level == 1 || level == 0">下注笔数</div>
+                <div v-if="level == 2 && memberBetLog[0].betContent == undefined">有效下注</div>
+                <div>下注金额</div>
+                <div>输赢金额</div>
+                <div v-if="level == 2 && memberBetLog[0].betContent != undefined">游戏</div>
+            </div>
+            <div
+                class="listContent"
+                v-for="(item,i) in memberBetLog"
+                @click="level += 1,platformSelector = item.spID,gameID = item.gameID,platformSeach()"
+            >
+                <div v-if="level == 0">{{item.spName}}</div>
+                <div v-if="level == 1">{{item.gameName}}</div>
+                <div v-if="level == 2">{{item.acDate}}</div>
+                <div v-if="level == 1 || level == 0">{{item.betECount}}</div>
+                <div v-if="level == 2 && item.betContent == null">{{item.betEAmt}}</div>
+                <div>{{item.betAmt}}</div>
+                <div :class="[{plus:item.rslAmt > 0,deficit:item.rslAmt < 0}]">{{item.rslAmt}}</div>
+                <div
+                    v-if="level == 2 && item.betContent != null"
+                    @click="detailShow(i)"
+                >{{item.betContent[0].PlayTypeS}}</div>
+            </div>
+            <div
+                class="totale"
+                v-if="memberBetLog!=''"
+            >
+                <div>合计</div>
+                <div v-if="level == 1 || level == 0">{{betECountTotal}}</div>
+                <div v-if="level == 2 && memberBetLog[0].betContent == undefined">{{betEAmtTotal}}</div>
+                <div>{{betAmtTotal}}</div>
+                <div :class="[{plus:rtnAmtTotal > 0,deficit:rtnAmtTotal < 0}]">{{rtnAmtTotal}}</div>
+                <div v-if="level == 2 && memberBetLog[0].betContent != undefined"></div>
+            </div>
+            <div
+                class="noData"
+                v-if="memberBetLog==''"
+            >
+                <div>查无资料</div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="detail"
+        v-if="detail"
+    >
+        <div class="detailNav">
+            <div
+                class="left-arrow"
+                @click="test2"
+            ></div>
+            <div class="detailNavConten">
+                <div class="left-arrow" @click="detailPagechange(-1)"></div>
+                {{this.detailDataPage + 1}}/{{this.memberBetLog.length}}
+                <div class="right-arrow" @click="detailPagechange(1)"></div>
+            </div>
+
+        </div>
+
+        <main class="detailContent">
+            <ul>
+                <li
+                    v-for="(item,i) in detailList"
+                    v-if="item.content != null"
+                >
+                    <div class="listName">{{item.name}}</div>
+                    <div
+                        class="detailValue"
+                        :class="{betContent:item.name == '下注内容'}"
+                    >{{item.content}}
+                        <div
+                            class="betData"
+                            v-if="item.name == '下注内容' && betData.Pos !=''"
+                            v-for="(betData,bd) in betContentData"
+                        >
+                            <div>{{betData.PosTitle}} : </div>
+                            <div>{{betData.Pos}}</div>
+
+                        </div>
+
+                    </div>
+                </li>
+                <!-- <li>
+                   <div>取款银行</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>平台</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>期号</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>玩法</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>下注内容</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>下注金额</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>中奖赔率</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>中奖注数</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>单注点数</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>状态</div>
+                   <div></div>
+               </li>
+               <li>
+                   <div>输赢金额</div>
+                   <div></div>
+               </li> -->
+            </ul>
+
+        </main>
+
+    </div>
+</div>

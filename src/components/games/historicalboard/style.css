@@ -1,0 +1,61 @@
+/*小球顏色*/
+.redback{background-color: #eb6877;border-radius: 3.2vmin;}
+.greenback{background-color: #80c269;border-radius: 3.2vmin;}
+.blueback{background-color: #556fb5;border-radius: 3.2vmin;}
+.noneback{color:#666666;font-weight: bold;}
+/*大球颜色*/
+.big-redback{background-color: #eb6877;border-radius: 7.2vmin;}
+.big-greenback{background-color: #80c269;border-radius: 7.2vmin;}
+.big-blueback{background-color: #556fb5;border-radius: 7.2vmin;}
+
+.wrapper .row .content1{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #c2c2c2;
+    background-color: #fff;
+    height: 17vmin;
+    align-items: center;
+    border-radius: 1.3vmin 1.3vmin 0 0;
+}
+.row .content1 .date,
+.row .content2 .date{
+    display: flex;
+    align-items: center;
+}
+.row .content1 .ballnumber{
+    color: #fff;
+    width: 55vmin;
+}
+.row .content1 .ballnumber ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 1.3vmin 0;
+}
+.row .content1 .ballnumber ul li{
+    padding: 1vmin;
+}
+
+.wrapper .row .content2{
+    height: 9vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0 0 1.3vmin 1.3vmin ;
+    background-color: #fff;
+}
+.row .content2 .timeContentWrap{
+    width: 55vmin;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.row .content2 .timeContentWrap img{
+    width: 3.7vmin;
+    height: 3vmin;
+}
+.row .content2 .timeContentWrap span{
+    margin: 0 2.1vmin;
+}
+.row .content2 .timeContentWrap .timeContent{
+    color: #ff2a2a;
+}

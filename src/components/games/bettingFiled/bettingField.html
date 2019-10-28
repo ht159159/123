@@ -1,0 +1,253 @@
+<div>
+  <div class="bet">
+    <div class="bet-upblock">
+      <div class="upblock-left">
+        <div class="text-field1">
+          <div class="barValueBox">
+            <span class="barValue">{{barValue}}%</span>
+          </div>
+
+        </div>
+        <input type="range" id='oddsBar' min="0" :max="barMax" v-model='barValue' step="0.1">
+        <!-- <div class="text-field2" >
+                <span>123</span>
+                <span>123</span>
+            </div> -->
+      </div>
+      <div class="upblock-right">
+        <span class="white">馀额:</span>
+        <span class="orange">{{ balance }}</span>
+        <span class="orange">元</span>
+      </div>
+    </div>
+    <div class="bet-downblock">
+      <div class="downblock-left">
+        <div class="del" @click="init">
+          <img src="../../../assets/img/icon_del.svg" alt="">
+        </div>
+        <div class="cal">
+          <span class="orange">{{quantity}}</span>
+          <span>注x</span>
+          <input type="number" v-model="unitPrice" @click="unitPrice=''" @blur="checkunitPrice">
+          <span>元</span>
+        </div>
+      </div>
+      <div class="downblock-mid">
+        <div class="betBtn" @click="betting">立即下注</div>
+      </div>
+      <div class="downblock-right">
+        <div class="add-shoppingcart">
+          <div class="addBtn" @click="toshopcar">加入购物篮</div>
+          <div class="shoppingCart">
+            <!-- <div class="shoppingCart-img" @click="openshopcar" :class="{'shoppingCart-on':sumcount>0}"
+              v-show="sumcount == 0"></div> -->
+              <img class="shoppingCart-img" src="../../../assets/img/icon_shoppingCart.svg" alt=""
+              @click="openshopcar" 
+              v-show="sumcount == 0">
+            <img class="shoppingCart-img" src="../../../assets/img/icon_shoppingCart_on.svg" alt=""  
+            @click="openshopcar" 
+            v-show="sumcount>0">
+            <span>{{sumcount}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 购物车 -->
+  <div class="SC-wrapper" :class="{'SC-transform':openPage}">
+    <div class="SC-title">
+      <img src="../../../assets/img/icon_return_o.png" alt="" class="menu" @click="openPage =! openPage">
+      <h1 class="SC-logo">购物篮</h1>
+      <img src="/img/icon_user.1d21e507.svg" alt="" class="user">
+    </div>
+    <div class="content-wrap">
+      <div class="content1">
+        <div class="orderTitle">
+          <div>游戏种类</div>
+          <div>第 {{panko.openissueNo}} 期</div>
+          <div class="timeContentWrap">
+            <div>
+              <img src="../../../assets/img/icon-time2.png" alt="">
+              <span>封盘</span>
+              <span class="timeContent">{{time.value}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content2">
+        <div class="orderBox" v-if="" v-for="(item,index) in orderDetail">
+          <div class="btnClose" @click="removeItem(item.uid)"></div>
+          <div class="orderContent">
+            <div class="orderContent_upBlock">
+              <div>{{ item.play }}</div>
+              <div>赔率:{{ item.betMainInfo.payRate }}</div>
+            </div>
+            <div class="orderContent_downBlock">
+              <div>{{ item.name }}</div>
+              <div>1注{{ item.betMainInfo.unitPrice }}元</div>
+            </div>
+          </div>
+          <div class="rightArrow" @click="showDetail(item.play,item.name)">
+
+          </div>
+        </div>
+      </div>
+      <div class="content3" v-if="issueTrace">
+        <div class="wyjh-wrap" :class="{'openSlide':openSlide}">
+          <div class="option-wrap">
+            <div class="option">
+              <span>是否追单</span>
+              <input class="apple-switch" type="checkbox" v-model="openSlide">
+            </div>
+          </div>
+          <div class="option-wrap">
+            <div class="option">
+              <span>中奖停止</span>
+              <input class="apple-switch" type="checkbox" v-model="WinningStop">
+            </div>
+          </div>
+          <div class="option-wrap">
+            <div class="option">
+              <span>追号条件</span>
+              <input class="apple-switch" type="checkbox" v-model="ChasingCondition">
+            </div>
+          </div>
+
+          <div class="option-WorL" v-if="ChasingCondition">
+            <div class="WorL-wrap">
+              <span>输</span>
+              <input class="apple-switch" type="checkbox" v-model="WinorLose">
+              <span :class="{'Win':WinorLose}">赢</span>
+            </div>
+            <input type="number" name="inputText" v-model="acLimit">
+            <span>元</span>
+          </div>
+          <div class="option2">
+            <span>追号期数</span>
+            <div class="raise-box">
+              <img src="../../../assets/img/btn_cut back.svg" @click="issueCount--">
+              <input type="number" name="raiseText" v-model="issueCount" min="1">
+              <img src="../../../assets/img/btn_increase.svg" @click="issueCount++">
+            </div>
+          </div>
+          <div class="option2">
+            <span>翻倍倍率</span>
+            <div class="raise-box">
+              <img src="../../../assets/img/btn_cut back.svg" @click="double--">
+              <input type="number" name="raiseText" v-model="double">
+              <img src="../../../assets/img/btn_increase.svg" @click="double++">
+            </div>
+          </div>
+          <div class="option2" v-for="(item,idx) in betSubInfo">
+            <span>{{item.issueNo}}期</span>
+            <div class="raise-box">
+              <img src="../../../assets/img/btn_cut back.svg" @click="item.multiple>1 ? item.multiple-- : 0">
+              <input type="number" name="raiseText" v-model="item.multiple">
+              <img src="../../../assets/img/btn_increase.svg" @click="item.multiple++">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="SC-footer">
+      <div class="row">
+        <span>馀额：</span>
+        <span class="yellow">{{balance}}</span>
+        <span class="yellow">元</span>
+      </div>
+      <div class="row">
+        <div>
+          <h1>总计注数</h1>
+          <span class="orange">{{sumcount}}</span>
+        </div>
+        <div>
+          <h1>总计投注</h1>
+          <span class="orange">{{summary}}元</span>
+        </div>
+      </div>
+      <div class="betBtnBox">
+        <div class="betBtn" @click="shopbet">投注</div>
+      </div>
+    </div>
+  </div>
+  <!-- 详细下注弹窗 -->
+  <div class="detailFB" v-if="isshowdDetailFb">
+    <div class="mask"></div>
+    <div class="detailFBWrap">
+      <div class="detailContent">
+        <div>
+          <span>{{detailData.play}}</span>
+          <!-- <span>{{detailData.name}}</span> -->
+        </div>
+      </div>
+      <div class="btnClose" @click="isshowdDetailFb = !isshowdDetailFb">
+        <span>关闭</span>
+      </div>
+
+    </div>
+  </div>
+  <!-- alert waring弹窗 -->
+  <div class="notBetYetFB" v-show="warningOpen">
+    <div class="mask"></div>
+    <div class="notBetYetFBWrap">
+      <div class="notBetYetFBContent">
+        <img src="@/assets/img/warning.png" alt="">
+        <span>{{alertMsg}}</span>
+      </div>
+      <div class="btnClose" @click="warningOpen = !warningOpen">
+        <span>确认</span>
+      </div>
+
+    </div>
+  </div>
+  <!-- alert success 弹窗 -->
+  <div class="notBetYetFB" v-show="successOpen">
+    <div class="mask"></div>
+    <div class="notBetYetFBWrap">
+      <div class="notBetYetFBContent">
+        <img src="@/assets/img/success.png" alt="">
+        <span>{{alertMsg}}</span>
+      </div>
+      <div class="btnClose" @click="successOpen = !successOpen">
+        <span>确认</span>
+      </div>
+
+    </div>
+  </div>
+  <!-- 封盘中弹窗 -->
+  <div class="notBetYetFB" v-show="closemsg">
+    <div class="mask"></div>
+    <div class="notBetYetFBWrap">
+      <div class="notBetYetFBContent">
+        <img src="@/assets/img/warning.png" alt="">
+        <span>已封盘</span>
+      </div>
+      <div class="btnClose" @click="closemsg = !closemsg">
+        <span>确认({{closesecond}})</span>
+      </div>
+
+    </div>
+  </div>
+  <!-- 投注中弹窗 -->
+  <div class="betting" v-show="bettingmsg">
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class='text'><span>投注中,祝你中奖</span></div>
+  </div>
+
+</div>
+
+
+</div>

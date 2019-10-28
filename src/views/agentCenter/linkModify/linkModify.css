@@ -1,0 +1,167 @@
+.linkModifyWrap {
+  min-height: 92.3vmax;
+  background: #f2f2f2;
+  padding-top: 7.2vmax;
+  padding-bottom: 7.8vmax;
+}
+
+.linkModifyWrap .down-arrow {
+  display: inline-block;
+  position: relative;
+  width: 4.3vmin;
+  height: 4.3vmin;
+}
+
+.linkModifyWrap .down-arrow::after {
+  display: inline-block;
+  content: " ";
+  height: 2.7vmin;
+  width: 2.7vmin;
+  border-width: 0 0.5vmin 0.5vmin 0;
+  border-color: #666666;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  margin-top: -1.5vmax;
+}
+
+.linkModifyWrap .grayLineWrap {
+  margin: 0 5.87vmin;
+}
+
+.linkModifyWrap .grayLine {
+  width: 100%;
+  height: 0.15vmax;
+  background-color: #f2f2f2;
+}
+
+.linkModifyWrap .topRight {
+  width: 26.67vmin;
+}
+
+.linkModifyWrap .topregisteredWrap {
+  width: 91.73vmin;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 2.4vmax;
+  color: #666666;
+  margin: 2.4vmax auto 1.5vmax;
+  padding-top: 4.2vmax;
+  padding-bottom: 3vmax;
+}
+
+.linkModifyWrap .accountName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 1.05vmax 5.87vmin;
+}
+
+.linkModifyWrap .accountName input {
+  border: none;
+}
+
+.linkModifyWrap .accountType {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 4.2vmax 0 1.05vmax 5.87vmin;
+}
+
+.linkModifyWrap .linkStatus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 4.2vmax 0 1.05vmax 5.87vmin;
+}
+
+.linkModifyWrap .statusSelect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50vmin;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.linkModifyWrap .statusSelect p {
+  width: 40vmin;
+}
+
+.linkModifyWrap .statusSelect .UCoption {
+  position: absolute;
+  width: 56vmin;
+  background: #f2f2f2;
+  border-radius: 0.75vmax;
+  padding-top: 0.75vmax;
+}
+
+.linkModifyWrap .statusSelect .UCoption li {
+  margin-bottom: 3vmax;
+  margin-left: 2.67vmin;
+}
+
+.linkModifyWrap .submitBtn {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.linkModifyWrap .submitBtn p {
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 6vmax auto 2vmax;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1929c), to(#e35e74));
+  background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+}
+
+.linkModifyWrap .bonusWrap {
+  width: 91.73vmin;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 2.1vmax;
+  color: #666666;
+  margin: 2.4vmax auto 1.5vmax;
+  padding-top: 4.2vmax;
+  padding-bottom: 3vmax;
+}
+
+.linkModifyWrap .bonusTitle {
+  padding-left: 5.87vmin;
+  margin-bottom: 1.2vmax;
+  font-weight: bold;
+  color: #666666;
+}
+
+.linkModifyWrap .bonusData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.2vmax 5.87vmin;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=linkModify.css.map */

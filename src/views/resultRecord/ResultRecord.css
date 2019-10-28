@@ -1,0 +1,452 @@
+html {
+  background-color: #f2f2f2;
+}
+.serchRecord {
+  width: 21.33vmin;
+  height: 4.5vmax;
+  border-radius: 15px;
+  box-shadow: 0 0.53vmin 0.53vmin 0 rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #f1929c, #e35e74);
+  border: none;
+  color: #fff;
+  margin-left: 1.33vmin;
+  align-self: center;
+  outline: none;
+}
+.record-titleMain {
+  width: 100%;
+  height: 23.99vmax;
+  background-color: #f2f2f2;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+}
+.record-title2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5vmax 0;
+  position: fixed;
+  top: 14.99vmax;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.record-title label {
+  font-size: 3.73vmin;
+  align-self: center;
+  margin: 0 1.33vmin;
+  padding-top: 0.5vmax;
+}
+.record-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5vmax;
+  position: fixed;
+  top: 7.5vmax;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.record-Field {
+  width: 44.53vmin;
+  height: 5.4vmax;
+  margin-bottom: 3vmax;
+  display: flex;
+  align-self: center;
+  position: relative;
+  margin: 0 1.07vmin;
+}
+.record-Field div,.record-Field1 div{
+  border-bottom: 1px solid #c2c2c2;
+  height: 5.4vmax;
+}
+.record-Field1 {
+  width: 18.67vmin;
+  height: 5.4vmax;
+  margin-bottom: 3vmax;
+  display: flex;
+  align-self: center;
+  position: relative;
+  margin: 0 1.07vmin;
+}
+.record-card {
+  width: 44.53vmin;
+  height: 5.4vmax;
+  color: #666666;
+  font-size: 3.2vmin;
+  border: none;
+  outline: none;
+  appearance: none;
+  align-self: center;
+  padding-left: 1.33vmin;
+  padding-bottom: 0.3vmax;
+  font-family:"Microsoft JhengHei","Heiti TC",sans-serif;
+  background: #f2f2f2;
+}
+.record-card1 {
+  width: 18.67vmin;
+  height: 5.4vmax;
+  color: #666666;
+  font-size: 3.2vmin;
+  border: none;
+  outline: none;
+  appearance: none;
+  align-self: center;
+  padding-left: 1.33vmin;
+  padding-bottom: 0.3vmax;
+  font-family:"Microsoft JhengHei","Heiti TC",sans-serif;
+}
+
+.record-Field img,
+.record-Field1 img {
+  width: 4.27vmin;
+  height: 4.27vmin;
+  position: absolute;
+  top: 1.5vmax;
+  right: 2.67vmin;
+}
+.resultMenu {
+  width: 78.4vmin;
+  height: 10.67vmin;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin: 0 4.27vmin 0 0;
+  overflow: auto;
+}
+.resultMenu div {
+  min-width: 78.4vmin;
+  height: 10.67vmin;
+  display: flex;
+  justify-content: flex-start;
+}
+.resultMenu div a {
+  width: 26.67vmin;
+  padding: 0.75vmax 5.07vmin;
+  white-space: nowrap;
+  align-self: center;
+  margin: 0 1.33vmin;
+  text-align: center;
+}
+.resultMenu div a.selected {
+  border-radius: 15px;
+  background-image: linear-gradient(to bottom, #eec069, #ff944d);
+  color: #ffffff;
+}
+.reflashing {
+  width: 10.67vmin;
+  height: 10.67vmin;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin: 0 2.4vmin 0 4.27vmin;
+}
+
+.reflashing img {
+  width: 5.33vmin;
+  height: 5.33vmin;
+  align-self: center;
+}
+.resultMenu > div {
+  align-self: center;
+  text-align: left;
+  margin-left: 3.73vmin;
+  font-size: 3.73vmin;
+}
+.resultMenu p:nth-of-type(2) {
+  margin-top: 0.3vmax;
+  color: #f57e2f;
+}
+.resultMain {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5vmax;
+  margin-top: 22.99vmax;
+}
+.resultTitle {
+  width: 93.73vmin;
+  height: 5.4vmax;
+  background: #ffffff;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-top: 1.5vmax;
+}
+.resultTitleLeft {
+  width: 25vmin;
+  align-self: center;
+  padding-left: 2.67vmin;
+}
+.resultTitleRight {
+  width: 66.93vmin;
+  align-self: center;
+  text-align: center;
+}
+.resultContent {
+  align-self: center;
+  position: relative;
+}
+.resultContentBox {
+  width: 93.73vmin;
+  height: 9vmax;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.15vmax 0;
+}
+.contentBoxLeft {
+  width: 25vmin;
+  align-self: center;
+  padding-left: 2.67vmin;
+}
+.contentBoxLeft .period {
+  margin-bottom: 0.75vmax;
+}
+.contentBoxLeft .time {
+  color: #f57e2f;
+}
+.contentBoxLeft p {
+  font-size: 3.73vmin;
+}
+.contentBoxRight {
+  width: 66.93vmin;
+  align-self: center;
+}
+.contentBoxRight div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.contentBoxRight .ball > div {
+  width: 6.4vmin;
+  height: 6.4vmin;
+  line-height: 6.4vmin;
+  border-radius: 20px;
+  align-self: center;
+  margin-bottom: 0.15vmax;
+}
+.red {
+  background-color: #eb6877;
+  color: #ffffff;
+  margin: 0 0.67vmin;
+}
+.green {
+  background-color: #80c269;
+  color: #ffffff;
+  margin: 0 0.67vmin;
+}
+.blue {
+  background-color: #556fb5;
+  color: #ffffff;
+  margin: 0 0.67vmin;
+}
+.yellow {
+  background-color: #feb433;
+  color: #ffffff;
+  margin: 0 0.67vmin;
+}
+.gray {
+  background-color: #fbfbfb;
+  border: 1px solid #999999;
+  margin: 0 0.67vmin;
+}
+.contentBoxRight .ball > div.none {
+  width: 5vmin;
+  height: 5vmin;
+}
+
+/* 总和 */
+.resultTitleRight2 {
+  width: 66.93vmin;
+  height: 5.4vmax;
+  align-self: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-around;
+}
+.resultTitleRight2 div {
+  height: 5.4vmax;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  margin-left: 0.15vmax;
+  white-space: nowrap;
+}
+.resultTitleRight2 div h3 {
+  background-color: #feb433;
+  font-size: 3.2vmin;
+  font-weight: bold;
+  padding: 1.2vmin 0.6vmin;
+  color: #fff;
+  border-radius: 5px;
+  align-self: center;
+}
+.contentBoxRight2 {
+  width: 66.93vmin;
+  height: 9vmax;
+  background-color: #f2f2f2;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+}
+.contentBoxRight2 > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 9vmax;
+  background-color: #ffffff;
+  flex: 1;
+  margin-left: 0.15vmax;
+}
+.contentBoxRight2 > div > h3 {
+  background-color: #f2f2f2;
+  padding: 1.2vmin 0.6vmax;
+  border-radius: 5px;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 3.2vmin;
+  font-weight: bold;
+}
+
+/* pk10 */
+
+.contentBoxRight .number > div {
+  width: 5.33vmin;
+  height: 5.33vmin;
+  border-radius: 5px;
+  line-height: 5.33vmin;
+  align-self: center;
+  margin: 0 0.27vmin;
+}
+.PKred {
+  background-color: #ff001a;
+  color: #ffffff;
+}
+.PKgreen {
+  background-color: #32c533;
+  color: #ffffff;
+}
+.PKwaterBlue {
+  background-color: #008cfa;
+  color: #ffffff;
+}
+.PKblue {
+  background-color: #11d6d3;
+  color: #ffffff;
+}
+.PKpurple {
+  background-color: #4224f8;
+  color: #ffffff;
+}
+.PKgray {
+  background-color: #a5a5a5;
+  color: #ffffff;
+}
+.PKorange {
+  background-color: #ff7022;
+  color: #ffffff;
+}
+.PKdeepGray {
+  background-color: #4d4d4d;
+  color: #ffffff;
+}
+.PKyellow {
+  background-color: #ffca3c;
+  color: #ffffff;
+}
+.PKcoffee {
+  background-color: #790007;
+  color: #ffffff;
+}
+
+/* 11X5 */
+
+.yellowBall > div {
+  width: 6.4vmin;
+  height: 6.4vmin;
+  line-height: 6.4vmin;
+  border-radius: 20px;
+  align-self: center;
+  margin: 0 0.67vmin;
+}
+
+/* k3 */
+.dice img {
+  width: 9.6vmin;
+  height: 9.6vmin;
+  margin-left: 2.67vmin;
+}
+.dice span {
+  width:4.27vmin;
+  align-self: center;
+  margin-left: 6.67vmin;
+  color: #feb433;
+  text-align: center;
+}
+
+/* record */
+.resultTitleRight3 {
+  width: 66.93vmin;
+  height: 5.4vmax;
+  align-self: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: space-around;
+}
+.resultTitleRight3 > div {
+  width: 6.43vmin;
+  height: 5.4vmax;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  margin-left: 0.15vmax;
+}
+.resultTitleRight3 div h3 {
+  background-color: #feb433;
+  width: 5.33vmin;
+  height: 5.33vmin;
+  line-height: 5.33vmin;
+  color: #fff;
+  border-radius: 20px;
+  align-self: center;
+}
+.contentBoxRight3 {
+  width: 66.93vmin;
+  height: 9vmax;
+  background-color: #f2f2f2;
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+}
+.contentBoxRight3 > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 6.43vmin;
+  height: 9vmax;
+  background-color: #ffffff;
+  flex: 1;
+  margin-left: 0.15vmax;
+}
+.contentBoxRight3 > div > h3 {
+  background-color: #f2f2f2;
+  width: 5.33vmin;
+  height: 5.33vmin;
+  line-height: 5.33vmin;
+  border-radius: 20px;
+  align-self: center;
+  font-size: 3.2vmin;
+  font-weight: bold;
+  text-align: center;
+}
+.contentBoxRight3 > div > h3.active {
+  background-color: #556fb5;
+  color: #fff;
+  position: relative;
+  z-index: 3;
+}

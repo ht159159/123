@@ -1,0 +1,262 @@
+<div>
+  <!-- <div class="title" v-if="$route.name == 'index'">
+    <img
+      class="menu"
+      src="@/assets/img/icon_menu.svg"
+      alt=""
+      @click="sideBarSwitch = 1;mask = 1"
+    />
+    <img class="logo" src="@/assets/img/logo1.png" alt="" />
+    <router-link to="/user"
+      ><img class="user" src="@/assets/img/icon_user.svg" alt=""
+    /></router-link>
+  </div> -->
+  <div class="title-login" v-if="$route.name == 'login'">
+    <a href="#/index">
+      <img class="menu" src="" alt="" @click="turnBack()" />
+      <img class="logo-login" src="@/assets/img/logo_login.png" />
+    </a>
+  </div>
+  <!-- 會員中心title -->
+  <div class="title-logined" v-else-if="$route.name == 'user'">
+    <img
+      class="menu"
+      src="@/assets/img/icon_return.png"
+      alt=""
+      @click="turnBack()"
+    />
+    <h1 class="logo">{{ this.$route.meta.title }}</h1>
+    <div class="user-info">
+      <div class="userIMG">
+        <img src="@/assets/img/icon_user_on.png" alt="" />
+      </div>
+      <h3>{{ loginID }}</h3>
+      <div class="restMoney">
+        <h3>馀额：{{ balance }}元</h3>
+        <img
+          :class="{refreshAnimation:refresh == 1}"
+          src="@/assets/img/icon_refresh_white.png"
+          alt=""
+          @click.stop="refreshbalance"
+        />
+      </div>
+    </div>
+    <router-link to="/user/userMessage">
+       <div class="messageIconBg">
+      <img src="../../assets/img/icon_user_message.png" alt="">
+    </div>
+    </router-link>
+   
+  </div>
+  <!-- 其餘版面title -->
+  <div class="title" v-else>
+    <div class="titleSide">
+      <a  v-if="$route.name == 'index'">
+        <img class="menu" src="" alt="" />
+      </a>
+      <a v-else>
+        <img
+          class="menu"
+          src="@/assets/img/icon_return_o.png"
+          alt=""
+          @click="turnBack()"
+        />
+      </a>
+    </div>
+    <div class="titleCenter">
+      <img
+        src="@/assets/img/titleLogo.png"
+        alt=""
+        class="logo"
+        :class="[{iconCredit:$route.path.indexOf('credit')> -1},{iconOfficial:$route.path.indexOf('official')> -1}]"
+        v-if="$route.name == 'index'"
+      />
+      <h1
+        v-else
+        class="logo"
+        :class="[{iconCredit:$route.path.indexOf('credit')> -1},{iconOfficial:$route.path.indexOf('official')> -1}]"
+      >
+        {{ this.$route.meta.title }}
+      </h1>
+    </div>
+
+    <router-link  class="titleSide" to="/user" v-if="$route.name == 'index'">
+      <img
+        class="menu"
+        v-if="$route.name == 'index'"
+        src="@/assets/img/iconUser.png"
+        alt=""
+      />
+      <img class="menu" v-else-if="$route.name == 'CQ9Slot' || $route.name == 'CQ9FISH' || $route.name == 'LEGaming' " src="@/assets/img/icon_index_search.svg" alt="" />
+      <img class="menu" v-else src="" alt="" />
+    </router-link>
+    <a  class="titleSide" v-else-if="$route.name == 'CQ9Slot'  || $route.name == 'CQ9FISH' || $route.name == 'LEGaming' " @click="searchStatusChange()">
+      <img class="menu" v-if="$route.name == 'CQ9Slot' || $route.name == 'CQ9FISH' || $route.name == 'LEGaming' " src="@/assets/img/icon_index_search.svg" alt="" />
+      <img class="menu" v-else src="" alt="" />
+    </a>
+    <a  class="titleSide" v-else>
+      <img class="menu"src="" alt="" />
+    </a>
+  </div>
+  <!-- sideBar -->
+  <div id="sideBar" v-show="sideBarSwitch == 1">
+    <div class="sideBarTitle">
+      <div class="sideBarCloseWrap">
+        <img
+          class="sideBarClose"
+          src="@/assets/img/icon_Leftsidebar_close.svg"
+          @click="sideBarSwitch = 0;mask = 0;"
+        />
+      </div>
+
+      <div class="sideBarTitleInfo">
+        <h3 v-if="isLogin">{{ loginID }}</h3>
+        <h3 v-if="isLogin">馀额：{{ balance }}元</h3>
+
+        <div class="sideGameType">
+          <h4
+            :class="{selected:sideGameType == 0}"
+            @click="changeGameType('0','sideGameType')"
+          >
+            官方玩法
+          </h4>
+          <h4
+            :class="{selected:sideGameType == 1}"
+            @click="changeGameType('1','sideGameType')"
+          >
+            娱乐城玩法
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="sideBarContent">
+      <!-- 官方玩法 -->
+      <ul v-show="sideGameType == 0">
+        <li v-for="(item,box) in menu[0].gameItem" :key="item.gameName">
+          <div class="sidebar-item-box" @click="itemClick(box,'side')">
+            <img :src="item.srcOn" />
+            <h2>{{ item.gameName }}</h2>
+            <img
+              class="iconDown"
+              src="@/assets/img/icon_up.png"
+              v-show="sideItemClicked == box"
+            />
+            <img
+              class="iconDown"
+              src="@/assets/img/icon_down.png"
+              v-show="sideItemClicked != box"
+            />
+          </div>
+          <ul v-show="sideItemClicked == box">
+            <router-link
+              :to="'/'+menu[0].router+'/'+subItem.routername+'/'+subItem.gameCode"
+              v-for="(subItem,subBox) in item.sub"
+              :key="subItem.gameCode"
+            >
+              <li class="sidebar-subitem-box" @click="mask=0,sideBarSwitch=0">
+                <h3>{{ subItem.subName }}</h3>
+              </li>
+            </router-link>
+          </ul>
+        </li>
+      </ul>
+      <!-- 娱乐城玩法 -->
+      <ul v-show="sideGameType == 1">
+        <li v-for="(item,box) in menu[1].gameItem" :key="item.gameName">
+          <div class="sidebar-item-box" @click="itemClick(box,'side')">
+            <img :src="item.srcOn" />
+            <h2>{{ item.gameName }}</h2>
+            <img class="iconDown" src="@/assets/img/icon_down.png" />
+          </div>
+          <ul v-show="sideItemClicked == box">
+            <router-link
+              :to="'/'+menu[1].router+'/'+subItem.routername+'/'+subItem.gameCode"
+              v-for="(subItem,subBox) in item.sub"
+              :key="subItem.gameCode"
+            >
+              <li class="sidebar-subitem-box" @click="mask=0,sideBarSwitch=0">
+                <h3>{{ subItem.subName }}</h3>
+              </li>
+            </router-link>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <router-link to="/resultRecord">
+            <div class="sidebar-item-box">
+              <img src="@/assets/img/icon_index_result_record.png" />
+              <h2>开奖记录</h2>
+            </div>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/user/betRecord">
+            <div class="sidebar-item-box">
+              <img src="@/assets/img/icon_index_withdraw.png" />
+              <h2>投注记录</h2>
+            </div>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="mask"
+    v-show="mask == 1"
+    @click="sideBarSwitch = 0;mask = 0;"
+  ></div>
+  <!-- 游戏选单弹窗 -->
+  <!-- <transition name="jumpWindow">
+    <div id="gameSelect" v-show="gameMenu">
+      <div class="n-title">
+        <img
+          src="@/assets/img/icon_close_white.png"
+          class="gameSelect-close"
+          @click.stop="gameMenu = false ;mask = 0"
+        />
+        <h2>游戏选择</h2>
+      </div>
+      <div class="n-content">
+        <div class="switch">
+          <div
+            @click="sideGameType = 0,windowItemClicked = undefined"
+            :class="{active:sideGameType == 0}"
+          >
+            <h2>标准</h2>
+          </div>
+          <div
+            @click="sideGameType = 1,windowItemClicked = undefined"
+            :class="{active:sideGameType == 1}"
+          >
+            <h2>娱乐城</h2>
+          </div>
+        </div>
+        <div class="switch-content">
+          <div
+            class="select-title"
+            v-for="(item,index) in menu[sideGameType].gameItem"
+          >
+            <div class="select-title-detail">
+              <img :src="item.src" alt="" />
+              <h3>{{ item.gameName }}</h3>
+            </div>
+            <div class="select-body">
+              <div
+                class="select-item"
+                v-for="(subItem,subIndex) in item.sub"
+                :class="{active: $route.params.id == subItem.gameCode && $route.path.indexOf(menu[sideGameType].router)>-1}"
+                @click="windowItemTitleNum = index,windowItemClicked  = subIndex,
+                      gameMenu = 0 ,mask = 0,
+                      gamePage(menu[sideGameType].router,subItem)"
+              >
+                <h4>{{ subItem.subName }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition> -->
+  <!-- <div class="mask" v-show="gameMenu" @click="gameMenu = false;mask = 0"></div> -->
+</div>

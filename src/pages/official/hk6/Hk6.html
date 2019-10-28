@@ -1,0 +1,333 @@
+<div class="wrapper" >
+    <div class="panel-wrap">
+        <HistoricalboardComponent :_time="time"/>
+        <!-- v-on:clickOff 监听玩法选择有无变动 -->
+        <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu"/>
+    </div>
+    <div class="playContent" :class="{'dontTouch':donotTouch}">
+        <!-- 特码 -->
+        <div class="TM" v-if="offTitle == 0 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(NUM,numidx) in TM" @click.down="TM[numidx].checked = !TM[numidx].checked"
+                @click="checkNum(TM)" :class="{'playActive': TM[numidx].checked}">
+                <div class="gameBoxWrap">
+                    <span :class="getcolor(NUM.play)">{{NUM.play}}</span>
+                    <span>{{ NUM.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 特码TMEND -->
+    
+        <!-- 两面 -->
+        <div class="LM" v-if="offTitle == 1 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(LMs,index) in LM" @click.down="LM[index].checked = !LM[index].checked"
+                @click="checkNum(LM)" :class="{'playActive': LM[index].checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ LMs.play}}</span>
+                    <span>{{ LMs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 两面END -->
+    
+        <!-- 正码6中1 -->
+        <div class="SixX1" v-if="offTitle == 2 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(NUM,numidx) in SixX1" @click.down="SixX1[numidx].checked = !SixX1[numidx].checked"
+                @click="checkNum(SixX1)" :class="{'playActive': SixX1[numidx].checked}">
+                <div class="gameBoxWrap">
+                    <span :class="getcolor(NUM.play)">{{NUM.play}}</span>
+                    <span>{{ NUM.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 正码6中1END -->
+    
+        <!-- 正码1-6 -->
+        <!-- 正码1 -->
+        <div class="SixMix" v-if="
+        offTitle == 3 && OffSubTitle == 0 || 
+        offTitle == 3 && OffSubTitle == 1 ||
+        offTitle == 3 && OffSubTitle == 2 ||
+        offTitle == 3 && OffSubTitle == 3 ||
+        offTitle == 3 && OffSubTitle == 4 ||
+        offTitle == 3 && OffSubTitle == 5">
+            <div class="gameBox" v-for="(NUM,numidx) in SixMixArr"
+                @click.down="SixMixArr[numidx].checked = !SixMixArr[numidx].checked"
+                :class="{'playActive': SixMixArr[numidx].checked}" @click="checkNum(SixMixArr)">
+                <div class="gameBoxWrap">
+                    <span>{{NUM.play}}</span>
+                    <span>{{ NUM.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 正码1-6END -->
+            
+        <!-- 色波 -->
+        <div class="SB" v-if="offTitle == 4 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(SBs,SBidx) in SB" @click.down="SB[SBidx].checked = !SB[SBidx].checked"
+                @click="checkNum(SB)" :class="{'playActive': SB[SBidx].checked}">
+                <div class="gameBoxWrap">
+                    <span
+                        :class="bobackground(SBs.id)">{{ SBs.play}}</span>
+                    <span>{{ SBs.odds }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 半波 -->
+        <div class="BB" v-if="offTitle == 5 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(BBs,BBidx) in BB" @click.down="BB[BBidx].checked = !BB[BBidx].checked"
+                @click="checkNum(BB)" :class="{'playActive': BB[BBidx].checked}">
+                <div class="gameBoxWrap">
+                    <span
+                        :class="bobackground(BBs.id)">{{ BBs.play}}</span>
+                    <span>{{ BBs.odds }}</span>
+                </div>
+            </div>
+        </div>    
+
+        <!-- 半半波 -->
+        <div class="BBB" v-if="offTitle == 6 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(BBBs,BBBidx) in BBB" @click.down="BBB[BBBidx].checked = !BBB[BBBidx].checked"
+                @click="checkNum(BBB)" :class="{'playActive': BBB[BBBidx].checked}">
+                <div class="gameBoxWrap">
+                    <span
+                        :class="bobackground(BBBs.id)">{{ BBBs.play}}</span>
+                    <span>{{ BBBs.odds }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏内容-七色波 -->
+        <div class="QSB" v-if="offTitle == 7 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(QSBs,QSBidx) in QSB" @click.down="QSB[QSBidx].checked = !QSB[QSBidx].checked"
+                @click="checkNum(QSB)" :class="{'playActive': QSB[QSBidx].checked}">
+                <div class="gameBoxWrap">
+                    <span
+                        :class="bobackground(QSBs.id)">{{ QSBs.play}}</span>
+                    <span>{{ QSBs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 游戏内容-七色波END -->
+    
+        <!-- 生肖 -->
+        <div class="Zodiac" v-if="offTitle == 8 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(Zodiacs,Zodiacidx) in Zodiac"
+                @click.down="Zodiac[Zodiacidx].checked = !Zodiac[Zodiacidx].checked" @click="checkNum(Zodiac)"
+                :class="{'playActive': Zodiac[Zodiacidx].checked}">
+                <div class="gameBoxWrap">
+                    <div class="imgWrap">
+                        <img :src="Zodiac[Zodiacidx].imgURL">
+                        <span>{{ Zodiacs.play}}</span>
+                    </div>
+                    <span>{{ Zodiacs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 生肖END -->
+    
+        <!-- 正肖 -->
+        <div class="Zodiac" v-if="offTitle == 9 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(Zodiacs,Zodiacidx) in Zodiac"
+                @click.down="Zodiac[Zodiacidx].checked = !Zodiac[Zodiacidx].checked" @click="checkNum(Zodiac)"
+                :class="{'playActive': Zodiac[Zodiacidx].checked}">
+                <div class="gameBoxWrap">
+                    <div class="imgWrap">
+                        <img :src="Zodiac[Zodiacidx].imgURL">
+                        <span>{{ Zodiacs.play}}</span>
+                    </div>
+                    <span>{{ Zodiacs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 正肖END -->
+    
+        <!-- 一肖 -->
+        <div class="Zodiac" v-if="offTitle == 10 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(Zodiacs,Zodiacidx) in Zodiac"
+                @click.down="Zodiac[Zodiacidx].checked = !Zodiac[Zodiacidx].checked" @click="checkNum(Zodiac)"
+                :class="{'playActive': Zodiac[Zodiacidx].checked}">
+                <div class="gameBoxWrap">
+                    <div class="imgWrap">
+                        <img :src="Zodiac[Zodiacidx].imgURL">
+                        <span>{{ Zodiacs.play}}</span>
+                    </div>
+                    <span>{{ Zodiacs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 一肖END -->
+    
+        <!-- 总肖 -->
+        <div class="ZX" v-if="offTitle == 11 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(ZXs,ZXidx) in ZX" @click.down="ZX[ZXidx].checked = !ZX[ZXidx].checked"
+                @click="checkNum(ZX)" :class="{'playActive': ZX[ZXidx].checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ ZXs.play}}</span>
+                    <span>{{ ZXs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 总肖END -->
+    
+        <!-- 头尾数 -->
+        <div class="TW" v-if="offTitle == 12 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(TWArrs,TWArridx) in TWArr"
+                @click.down="TWArr[TWArridx].checked = !TWArr[TWArridx].checked" @click="checkNum(TWArr)"
+                :class="{'playActive': TWArr[TWArridx].checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ TWArrs.play}}</span>
+                    <span>{{ TWArrs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 头尾数END -->
+    
+        <!-- 正特尾数 -->
+        <div class="ZTWS" v-if="offTitle == 13 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(ZTWSArrs,ZTWSArridx) in ZTWSArr"
+                @click.down="ZTWSArr[ZTWSArridx].checked = !ZTWSArr[ZTWSArridx].checked" @click="checkNum(ZTWSArr)"
+                :class="{'playActive': ZTWSArr[ZTWSArridx].checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ ZTWSArrs.play}}</span>
+                    <span>{{ ZTWSArrs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 正特尾数END -->
+    
+        <!-- 七码五行 -->
+        <div class="QMWH" v-if="offTitle == 14 && OffSubTitle == 0 ">
+            <div class="gameBox" v-for="(QMWHArrs,QMWHArridx) in QMWHArr"
+                @click.down="QMWHArr[QMWHArridx].checked = !QMWHArr[QMWHArridx].checked" @click="checkNum(QMWHArr)"
+                :class="{'playActive': QMWHArr[QMWHArridx].checked}">
+                <div class="gameBoxWrap">
+                    <span>{{ QMWHArrs.play}}</span>
+                    <span>{{ QMWHArrs.odds }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- 七码五行END -->
+    
+        <!-- 连码 -->
+        <div class="LMa" v-for="(LMatitles,LMaTitleIdx) in LMatitle"
+            v-if="offTitle == 15 && OffSubTitle == LMaTitleIdx  ">
+            <div class="contentWrap">
+                <div class="gameTitle">
+                    <span>{{ LMatitles }}</span>
+                    <span>赔率：{{ LMaArr[0].odds2>0?LMaArr[0].odds+'|'+LMaArr[0].odds2:LMaArr[0].odds}}</span>
+                </div>
+                <!-- 全大小单双清組件 -->
+                <Option_slideComponent :dataGroups="LMaArr" :_option_slide_idx.sync="option_slide_idx"/>
+                
+                <div class="gameBox_6_wrap">
+                    <div class="gameBox_6" v-for="(LMas,LMaidx) in LMaArr"
+                        @click.down="LMaArr[LMaidx].checked = !LMaArr[LMaidx].checked" @click="checkNum(LMaArr)" 
+                        :class="{'playActive': LMaArr[LMaidx].checked}">
+                        <div class="gameBoxWrap">
+                            <span :class="getcolor(LMas.play)">{{LMas.play}}</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- 连码END -->
+    
+        <!-- 连肖 -->
+        <div class="LS" v-for="(LStitles,LSTitleIdx) in LSTitle" v-if="offTitle == 16 && OffSubTitle == LSTitleIdx">
+            <div class="contentWrap">
+                <div class="gameTitle">
+                    <span>{{ LStitles }}</span>
+                    <span>赔率：{{ LS[0].odds2>0?LS[0].odds+'|'+LS[0].odds2:LS[0].odds }}</span>
+                </div>
+    
+                 <!-- 全大小单双清組件 -->
+                 <Option_slideComponent :dataGroups="LS" :_option_slide_idx.sync="option_slide_idx"/>
+                 <div class="gameBox_6_wrap">
+                                     <div class="gameBox" v-for="(LSs,LSidx) in LS" @click.down="LS[LSidx].checked = !LS[LSidx].checked"
+                    @click="checkNum(LS)" :class="{'playActive': LS[LSidx].checked}">
+                    <div class="gameBoxWrap">
+                        <div class="imgWrap">
+                            <img :src="LS[LSidx].imgURL">
+                            <span>{{ LSs.name}}</span>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+
+            </div>
+        </div>
+        <!-- 连肖END -->
+
+        <!-- 连尾 -->
+        <div class="LW" v-for="(LWTitles,LWTitleIdx) in LWTitle" v-if="offTitle == 17 && OffSubTitle == LWTitleIdx">
+                <div class="contentWrap">
+                    <div class="gameTitle">
+                        <span>{{ (LWTitles) }}</span>
+                        <span>赔率：{{ LW[0].odds2>0?LW[0].odds+'|'+LW[0].odds2:LW[0].odds }}</span>
+                    </div>
+        
+                    <!-- 全大小单双清組件 -->
+                    <Option_slideComponent :dataGroups="LW" :_option_slide_idx.sync="option_slide_idx"/>
+                    <div class="gameBox_6_wrap">
+                         <div class="gameBox" v-for="(LWs,LWidx) in LW" @click.down="LW[LWidx].checked = !LW[LWidx].checked"
+                        @click="checkNum(LW)" :class="{'playActive': LW[LWidx].checked}">
+                        <div class="gameBoxWrap">
+                                <span>{{LWs.name}}</span>
+                                
+                        </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        <!-- 连尾END -->
+
+        <!-- 自选不中 -->
+        <div class="ZXBZ" v-for="(ZXBZTitles,ZXBZTitleIdx) in ZXBZTitle" v-if="offTitle == 18 && OffSubTitle == ZXBZTitleIdx  ">
+            <div class="contentWrap">
+                <div class="gameTitle">
+                    <span>{{ ZXBZTitles }}</span>
+                    <span>赔率：{{ ZXBZArr[0].odds2>0?ZXBZArr[0].odds+'|'+ZXBZArr[0].odds2:ZXBZArr[0].odds}}</span>
+                </div>
+                <!-- 全大小单双清組件 -->
+                <Option_slideComponent :dataGroups="ZXBZArr" :_option_slide_idx.sync="option_slide_idx"/>
+                <div class="gameBox_6_wrap">
+                     <div class="gameBox_6" v-for="(ZXBZArrs,ZXBZidx) in ZXBZArr"
+                    @click.down="ZXBZArr[ZXBZidx].checked = !ZXBZArr[ZXBZidx].checked" @click="checkNum(ZXBZArr)" 
+                    :class="{'playActive': ZXBZArr[ZXBZidx].checked}">
+                    <div class="gameBoxWrap">
+                        <span :class="getcolor(ZXBZArrs.play)">{{ZXBZArrs.play}}</span>
+                    </div>
+                </div>
+                </div>
+               
+            </div>
+        </div>    
+        <!-- 自选不中END -->
+    </div>
+    <BettingFieldComponent ref="bf"
+     :barMax="barMax" 
+     :forbet="forbet" 
+     :rate.sync="rebatRate"
+     :quantity="quantity"
+     :time="time"
+     :issueTrace="issueTrace"
+     />
+     <div class="lds-spinner" v-show="mask">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="mask" v-show="mask"></div>
+</div>

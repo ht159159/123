@@ -1,0 +1,204 @@
+<div class="linkRegisteredWrap">
+  <div class="topregisteredWrap">
+    <div class="accountCategory">
+      <p>账号类别</p>
+      <div class="memberSelect">
+        <p @click="memberStaus=!memberStaus">{{ memberStausName }}</p>
+        <div class="down-arrow"></div>
+        <ul class="UCoption" v-show="memberStaus">
+          <li
+            v-for="(item,Index) in openlist"
+            @click="selectMembertype($event,Index,item.name)"
+          >
+            {{ item.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="grayLineWrap">
+      <div class="grayLine"></div>
+    </div>
+    <div class="accountEnter">
+      <p>登入账号</p>
+      <div>
+        <input
+          type="text"
+          placeholder="请输入注册账号"
+          v-model.trim="childrenMemberData.childLoginID"
+        />
+      </div>
+    </div>
+    <div class="grayLineWrap">
+      <div class="grayLine"></div>
+    </div>
+  </div>
+  <div class="bonusSetWrap">
+    <div class="bonusTitle">
+      <p>奖金组设定</p>
+      <div class="setup-select">
+        <span>最低</span>
+        <div class="iphone-checkbox">
+          <input
+            type="checkbox"
+            class="advanced_switch js-minMax-switch"
+            id="prize_setup"
+            @click="changeBonusExtreme($event)"
+          />
+          <label for="prize_setup"></label>
+        </div>
+        <span>最高</span>
+      </div>
+    </div>
+    <div class="gameAdjustment">
+      <div class="progressBarWrap">
+        <div class="lessWrap">
+          <div class="less" @click="lessToptapstart()">
+            <p>-</p>
+          </div>
+          <p class="lessNum">{{ bonustopMin }}</p>
+        </div>
+        <div>
+          <v-touch v-on:tap="toptapstart" v-on:panend="toptapstart">
+            <input
+              type="range"
+              :min="bonustopMin"
+              :max="bonustopMax"
+              step="2"
+              class="zipper"
+              name="prize"
+              v-model="topMultiple"
+            />
+          </v-touch>
+        </div>
+        <div class="addWrap">
+          <p class="addNum">{{ bonustopMax }}</p>
+          <p class="add" @click="addToptapstart()">+</p>
+        </div>
+      </div>
+      <div class="grayLine"></div>
+    </div>
+    <div class="gameAdjustment" v-for="(item,Index) in bonusGroupData">
+      <div class="gameAdjustmentTitle">
+        <div class="gameName">{{ item.spName }}</div>
+        <div>{{ item.multiple }}</div>
+      </div>
+      <div class="progressBarWrap">
+        <div class="lessWrap">
+          <div class="less" @click="lessMultiple(Index)">
+            <p>-</p>
+          </div>
+          <p class="lessNum">{{ item.multipleMin }}</p>
+        </div>
+        <div>
+          <v-touch
+            v-on:tap="tapstart($event,Index)"
+            v-on:panmove="tapstart($event,Index)"
+          >
+            <input
+              type="range"
+              :min="item.multipleMin"
+              :max="item.multipleMax"
+              step="2"
+              class="zipper"
+              name="prize"
+              v-model="item.multiple"
+            />
+          </v-touch>
+        </div>
+        <div class="addWrap">
+          <p class="addNum">{{ item.multipleMax }}</p>
+          <p class="add" @click="addMultiple(Index)">+</p>
+        </div>
+      </div>
+      <div class="grayLine"></div>
+    </div>
+  </div>
+  <div class="antiWater">
+    <div class="bonusSetWrap">
+      <div class="bonusTitle">
+        <p>反水设定</p>
+        <div class="setup-select">
+          <span>最低</span>
+          <div class="iphone-checkbox">
+            <input
+              type="checkbox"
+              id="water_setup"
+              class="advanced_switch js-minMax-switch"
+              @click="changeWaterExtreme($event)"
+            />
+            <label for="water_setup"></label>
+          </div>
+          <span>最高</span>
+        </div>
+      </div>
+      <div class="gameAdjustment">
+        <div class="progressBarWrap">
+          <div class="lessWrap">
+            <div class="less" @click="lessWaterToptapstart()">
+              <p>-</p>
+            </div>
+            <p class="lessNum">{{ watertopMin }}</p>
+          </div>
+          <div>
+            <v-touch
+              v-on:tap="waterToptapstart($event)"
+              v-on:panend="waterToptapstart($event)"
+            >
+              <input
+                type="range"
+                :min="watertopMin*100"
+                :max="watertopMax*100"
+                class="waterZipper"
+                name="prize"
+                v-model="watertopMultiple"
+              />
+            </v-touch>
+          </div>
+          <div class="addWrap">
+            <p class="addNum">{{ watertopMax }}</p>
+            <p class="add" @click="addWaterToptapstart()">+</p>
+          </div>
+        </div>
+        <div class="grayLine"></div>
+      </div>
+      <div class="gameAdjustment" v-for="(item,Index) in waterGroupData">
+        <div class="gameAdjustmentTitle">
+          <div class="gameName">{{ item.spName }}</div>
+          <div>{{ item.rebatRate / 100 }}%</div>
+        </div>
+        <div class="progressBarWrap">
+          <div class="lessWrap">
+            <div class="less" @click="lessRebatRateEdit(Index)">
+              <p>-</p>
+            </div>
+            <p class="lessNum">{{ item.rebatRateMin }}</p>
+          </div>
+          <div>
+            <v-touch
+              v-on:tap="waterTapstart($event,Index)"
+              v-on:panmove="waterTapstart($event,Index)"
+            >
+              <input
+                type="range"
+                :min="item.rebatRateMin*100"
+                :max="item.rebatRateMax*100"
+                step="2"
+                class="waterZipper"
+                name="prize"
+                v-model="item.rebatRate"
+              />
+            </v-touch>
+          </div>
+          <div class="addWrap">
+            <p class="addNum">{{ item.rebatRateMax }}</p>
+            <p class="add" @click="addRebatRateEdit(Index)">+</p>
+          </div>
+        </div>
+        <div class="grayLine"></div>
+      </div>
+      <div class="submitBtn">
+        <p @click="createUrl()">提交</p>
+      </div>
+    </div>
+  </div>
+</div>

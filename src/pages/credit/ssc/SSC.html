@@ -1,0 +1,70 @@
+<div class="wrapper SSC">
+    <div class="panel-wrap">
+        <HistoricalboardComponent :_time="time"/>
+        <!-- v-on:clickOff 监听玩法选择有无变动 -->
+        <GameChoiceComponent v-on:clickOff="clickOff" @childByValue="childByValue" :gameMenu="gameMenu"/>
+    </div>
+    
+    <div :class="{'dontTouch':donotTouch}">
+        <!-- all of game paly -->
+        <div class="gamePlayName" 
+        v-for="(item,itemIndex) in gameMenu"
+        :class="item.name">
+            <div v-for="(subItem,subItemIndex) in item.sub"
+            :class ="[subItem.subName,{gameBackground:offTitle == itemIndex && OffSubTitle == subItemIndex}]">
+                <div class="contentW" 
+                :class="subItem.shortName"
+                v-if="offTitle == itemIndex && OffSubTitle == subItemIndex">
+                    <div :class="[{Baccarat:offTitle == 1},{normal:offTitle != 0 && offTitle != 1}]"
+                    class="game" v-for="(sort,sortIndex) in subItem.classification">
+                        <div class="gameTitle">
+                            <span> {{ sort.classificationNum }} </span>
+                            <div v-if="offTitle == 1">
+                                <h3 >前两个数(万,千位)相加为闲家点数</h3>
+                                <h3>后两个数(十,个位)相加为庄家点数</h3>
+                            </div>
+                            <!-- <span v-if="sortIndex == 0">赔率：{{ subItem.oddsArr[0].odds2>0?subItem.oddsArr[0].odds2 +' | '+subItem.oddsArr[0].odds : subItem.oddsArr[0].odds}}</span> -->
+                        </div>
+                        <div :class="subItem.contentStyle == null ?'gameContent':'gameContent2'">
+                            <div class="gameBox_6" 
+                            :class="{'playActive': num.checked}"
+                            v-for="(num,numidx) in sort.classificationArr"
+                            @click.down="num.checked = !num.checked" @click="checkNum(subItem.classification,sortIndex,numidx)">
+                                <div class="gameBoxWrap">
+                                    <span class="idName" 
+                                    :id="num.id">{{num.play}}</span>
+                                    <span class="">{{num.oddsArr[0].odds}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>  
+    
+       <!-- gamePlay end -->
+    <BettingFieldComponent ref="bf"
+    :barMax="barMax" 
+    :forbet="forbet" 
+    :rate.sync="rebatRate"
+    :quantity="quantity"
+    :time="time"
+    :issueTrace="issueTrace"
+     />
+     <div class="lds-spinner" v-show="mask">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="mask" v-show="mask"></div>
+</div>

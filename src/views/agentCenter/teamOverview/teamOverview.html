@@ -1,0 +1,33 @@
+<div class="teamOverview content">
+        <div class="recordSearch">
+            <div class="record-title">
+                <label for="startTime">时间</label>
+                <input
+                    type="date"
+                    id="startTime"
+                    required="required"
+                    v-model="startTime"
+                >
+                <label for="endTime">至</label>
+                <input
+                    type="date"
+                    id="endTime"
+                    required="required"
+                    v-model="endTime"
+                >
+                <!-- <button class="serchRecord" @click="submit">查询</button> -->
+            </div>
+            <div class="timeSelector">
+                <div
+                    v-for="item in timeSelector"
+                    @click="quickdate(item.dayValue)"
+                >
+                    {{item.time}}
+                </div>
+                <button
+                    class="serchRecord"
+                    @click="level = 0,platformSeach()"
+                >查询</button>
+            </div>
+        </div>
+    </div>

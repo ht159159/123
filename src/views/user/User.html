@@ -1,0 +1,15 @@
+<div>
+  <div class="content user" v-if="$route.path == '/user'">
+    <div class="user-options" >
+      <router-link class="user-options-item" v-for="item in userOptions"
+      :to="item.href">
+        <div :class="item.name">
+          <img :src="item.src" alt="" />
+        </div>
+        <h2>{{ item.optionFont }}</h2>
+      </router-link>
+    </div>
+    <button class="logout" @click="logout">登出</button>
+  </div>
+  <router-view></router-view>
+</div>

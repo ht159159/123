@@ -1,0 +1,90 @@
+.linkManagement {
+  min-height: 100vmax;
+  background-color: #f2f2f2;
+  padding-top: 7.2vmax;
+}
+
+.linkManagement .copyURL {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.linkManagement .linkRegistered {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  z-index: 6;
+  right: 2.67vmin;
+  top: 1.5vmax;
+}
+
+.linkManagement .linkRegistered p {
+  font-size: 5.27vmin;
+}
+
+.linkManagement .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.linkManagement .grayLine {
+  width: 100%;
+  height: 0.15vmax;
+  background-color: #f2f2f2;
+}
+
+.linkManagement .linkWrap {
+  margin: 2.4vmax 4.27vmin 0;
+  border-radius: 0.75vmax;
+  background-color: #ffffff;
+}
+
+.linkManagement .userWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 1.35vmax;
+  padding-bottom: 1.35vmax;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.linkManagement .userWrap .linkName {
+  margin-left: 2.67vmin;
+  width: 29.33vmin;
+}
+
+.linkManagement .userWrap .linkName img {
+  margin-left: 1.33vmin;
+}
+
+.linkManagement .userWrap .category {
+  width: 18vmin;
+}
+
+.linkManagement .userWrap .status {
+  width: 12vmin;
+}
+
+.linkManagement .userWrap .operating {
+  width: 32vmin;
+}
+
+.linkManagement .userWrap .operating .operatingImg {
+  margin-right: 2.67vmin;
+}
+/*# sourceMappingURL=linkManagement.css.map */
